@@ -1,0 +1,15 @@
+{
+    "al.enableCodeActions": true,
+    "al.enableCodeAnalysis": true,
+    "al.codeAnalyzers": [
+        "${PerTenantExtensionCop}",
+        "${CodeCop}",
+        "${AppSourceCop}",
+        "${UICop}"
+    ],
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "CRS.FileNamePatternExtensions": "<ObjectNameShort>.<ObjectTypeShortPascalCase>.al",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "al.ruleSetPath": "./config/AppRuleSet.json"
+}

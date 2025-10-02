@@ -1,0 +1,38 @@
+{
+  "id": "413c1e79-27ee-414b-8de2-733bbdfb6cd5",
+  "name": "PRIME Pro-Rata VAT",
+  "publisher": "Var Prime",
+  "version": "26.0.0.0",
+  "target": "Cloud",
+  "brief": "PRIME Pro-Rata VAT",
+  "description": "PRIME Pro-Rata VAT",
+  "preprocessorSymbols": [
+    ""
+  ],
+  "privacyStatement": "https://www.varprime.com/privacy-policy-sito/",
+  "EULA": "https://www.varprime.com/privacy-policy-sito/",
+  "help": "",
+  "url": "https://www.varprime.com/",
+  "logo": "./res/images/primeExtensionLOGO.png",
+  "dependencies": [],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "26.0.0.0",
+  "idRanges": [
+    {
+      "from": 78000,
+      "to": 78099
+    }
+  ],
+  "features": [
+    "GenerateCaptions",
+    "TranslationFile",
+    "NoImplicitWith"
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": false,
+    "includeSourceInSymbolFile": false
+  },
+  "runtime": "15.0"
+}

@@ -1,0 +1,2008 @@
+#pragma warning disable AA0021
+#pragma warning disable AA0074
+#pragma warning disable AA0470
+#pragma warning disable AA0245
+#pragma warning disable AA0244
+#pragma warning disable AA0198
+#pragma warning disable AA0228
+
+report 78001 "PRV Calc. and Post VAT Settl."
+{
+    DefaultLayout = RDLC;
+    RDLCLayout = './src/report/Layout/PRVCalcAndPostVATSettl.rdlc';
+    AdditionalSearchTerms = 'settle vat value added tax,report vat value added tax';
+    ApplicationArea = Basic, Suite;
+    Caption = 'Calculate and Post VAT Settlement (Pro-Rata)';
+    Permissions = TableData "VAT Entry" = rimd;
+    UsageCategory = ReportsAndAnalysis;
+
+    dataset
+    {
+        dataitem("VAT Posting Setup"; "VAT Posting Setup")
+        {
+            DataItemTableView = sorting("VAT Bus. Posting Group", "VAT Prod. Posting Group");
+            column(PostSettlement; PostSettlement)
+            {
+            }
+            column(PeriodVATDateFilter; StrSubstNo(Text005, VATDateFilter))
+            {
+            }
+            column(CompanyName; COMPANYPROPERTY.DisplayName())
+            {
+            }
+            column(PostingDate; Format(PostingDate))
+            {
+            }
+            column(DocNo; DocNo)
+            {
+            }
+            column(GLAccSettleNo; GLAccSettle."No.")
+            {
+            }
+            column(UseAmtsInAddCurr; UseAmtsInAddCurr)
+            {
+            }
+            column(PrintVATEntries; PrintVATEntries)
+            {
+            }
+            column(VATPostingSetupCptnFilter; "VAT Posting Setup".TableCaption + ': ' + VATPostingSetupFilter)
+            {
+            }
+            column(VATPostingSetupFilter; VATPostingSetupFilter)
+            {
+            }
+            column(HeaderText; HeaderText)
+            {
+            }
+            column(TotalSaleAmtTotalPurchAmt; -(TotalSaleAmount + TotalPurchaseAmount))
+            {
+                AutoFormatType = 1;
+            }
+            column(TotalSaleAmount; TotalSaleAmount)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(PeriodOutputVATYearOutputVATAdvAmt; PeriodOutputVATYearOutputVATAdvAmt)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(TotalPurchaseAmount; -TotalPurchaseAmount)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(PeriodInputVATYearInputVAT; PeriodInputVATYearInputVAT)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(FinalUndVATAmnt; FinalUndVATAmnt)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(TotalSaleRounded; TotalSaleRounded)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            // column(TotalPurchRounded; TotalPurchRounded)  //PRV - old line
+            column(TotalPurchRounded; TotalPurchRounded + ImportoProRata)  //PRV - new line
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            // column(VATToPay; VATToPay)  //PRV - old line
+            column(VATToPay; VATToPay - PriorPeriodVATEntry."Prior Period Input VAT" - PriorPeriodVATEntry."Prior Year Input VAT")  //PRV - new line
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(VATBusPostGr_VATPostingSetup; "VAT Bus. Posting Group")
+            {
+            }
+            column(VATProdPostGr_VATPostingSetup; "VAT Prod. Posting Group")
+            {
+            }
+            column(TestReportnotpostedCaption; TestReportnotpostedCaptionLbl)
+            {
+            }
+            column(CalcandPostVATSettlementCaption; CalcandPostVATSettlementCaptionLbl)
+            {
+            }
+            column(DocNoCaption; DocNoCaptionLbl)
+            {
+            }
+            column(GLAccSettleNoCaption; GLAccSettleNoCaptionLbl)
+            {
+            }
+            column(VATEntryPostingDateCaption; VATEntryPostingDateCaptionLbl)
+            {
+            }
+            column(VATEntryDocumentTypeCaption; VATEntryDocumentTypeCaptionLbl)
+            {
+            }
+            column(TotalSaleAmountTotalPurchaseAmountCaption; TotalSaleAmountTotalPurchaseAmountCaptionLbl)
+            {
+            }
+            column(TotalSaleAmountCaption; TotalSaleAmountCaptionLbl)
+            {
+            }
+            column(TotalPurchaseAmountCaption; TotalPurchaseAmountCaptionLbl)
+            {
+            }
+            column(PriorPeriodOutputVATCaption; PriorPeriodVATEntryPriorPeriodOutputVATPriorPeriodVATEntryPriorYearOutputVATPriorPeriodVATEntryAdvancedAmountCaptionLbl)
+            {
+            }
+            column(PriorPeriodInputVATCaption; PriorPeriodVATEntryPriorPeriodInputVATPriorPeriodVATEntryPriorYearInputVATCaptionLbl)
+            {
+            }
+            column(FinalUndVATAmntCaption; FinalUndVATAmntCaptionLbl)
+            {
+            }
+            column(TotalSaleRoundedCaption; TotalSaleRoundedCaptionLbl)
+            {
+            }
+            column(TotalPurchRoundedCaption; TotalPurchRoundedCaptionLbl)
+            {
+            }
+            column(VATToPayCaption; VATToPayCaptionLbl)
+            {
+            }
+            column(VATEntryDocumentNoCaption; "VAT Entry".FieldCaption("Document No."))
+            {
+            }
+            column(VATEntryTypeCaption; "VAT Entry".FieldCaption(Type))
+            {
+            }
+            column(VATEntryBaseCaption; "VAT Entry".FieldCaption(Base))
+            {
+            }
+            column(VATEntryAmountCaption; "VAT Entry".FieldCaption(Amount))
+            {
+            }
+            column(VATEntryEntryNoCaption; "VAT Entry".FieldCaption("Entry No."))
+            {
+            }
+            column(VATEntryNondeductibleAmountCaption; "VAT Entry".FieldCaption("Nondeductible Amount"))
+            {
+            }
+            column(VATEntryNondeductibleBaseCaption; "VAT Entry".FieldCaption("Nondeductible Base"))
+            {
+            }
+            column(VATEntryRemainingUnrealizedBaseCaption; "VAT Entry".FieldCaption("Remaining Unrealized Base"))
+            {
+            }
+            column(VATEntryRemainingUnrealizedAmountCaption; "VAT Entry".FieldCaption("Remaining Unrealized Amount"))
+            {
+            }
+            column(txtDetrProRataCaption; txtDetrProRataCaption)  //PRV - new line
+            {
+            }
+            column(ImportoProRata; ImportoProRata)  //PRV - new line
+            {
+            }
+            dataitem("Activity Code Loop"; "Integer")
+            {
+                DataItemTableView = sorting(Number) where(Number = filter(1 ..));
+
+
+                dataitem("Closing G/L and VAT Entry"; "Integer")
+                {
+                    DataItemTableView = sorting(Number);
+                    column(VATBusPostGr1_VATPostingSetup; "VAT Posting Setup"."VAT Bus. Posting Group")
+                    {
+                    }
+                    column(VATProdPostGr1_VATPostingSetup; "VAT Posting Setup"."VAT Prod. Posting Group")
+                    {
+                    }
+                    column(VATEntryGetFilterType; VATEntry.GetFilter(Type))
+                    {
+                    }
+                    column(VATEntryGetFilterTaxJurisdictionCode; VATEntry.GetFilter("Tax Jurisdiction Code"))
+                    {
+                    }
+                    column(VATEntryGetFilterUseTax; VATEntry.GetFilter("Use Tax"))
+                    {
+                    }
+                    column(Number_IntegerLine; Number)
+                    {
+                    }
+                    dataitem("VAT Entry"; "VAT Entry")
+                    {
+                        DataItemTableView = sorting(Type, Closed) where(Closed = const(false), Type = filter(Purchase | Sale));
+                        column(PostingDate_VATEntry; Format("Posting Date"))
+                        {
+                        }
+                        column(DocumentNo_VATEntry; "Document No.")
+                        {
+                            IncludeCaption = false;
+                        }
+                        column(DocumentType_VATEntry; "Document Type")
+                        {
+                        }
+                        column(Type_VATEntry; Type)
+                        {
+                            IncludeCaption = false;
+                        }
+                        column(Base_VATEntry; Base)
+                        {
+                            AutoFormatExpression = GetCurrency();
+                            AutoFormatType = 1;
+                            IncludeCaption = false;
+                        }
+                        column(Amount_VATEntry; Amount)
+                        {
+                            AutoFormatExpression = GetCurrency();
+                            AutoFormatType = 1;
+                            IncludeCaption = false;
+                        }
+                        column(EntryNo_VATEntry; "Entry No.")
+                        {
+                            IncludeCaption = false;
+                        }
+                        column(NondeductibleAmount_VATEntry; "Nondeductible Amount")
+                        {
+                            IncludeCaption = false;
+                        }
+                        column(NondeductibleBase_VATEntry; "Nondeductible Base")
+                        {
+                            IncludeCaption = false;
+                        }
+                        column(RemUnrealizedAmt_VATEntry; "Remaining Unrealized Amount")
+                        {
+                            IncludeCaption = false;
+                        }
+                        column(RemUnrealizedBase_VATEntry; "Remaining Unrealized Base")
+                        {
+                            IncludeCaption = false;
+                        }
+
+                        trigger OnAfterGetRecord()
+                        begin
+                            TotalVATNondeducAmnt += "Nondeductible Amount";
+                            TotalVATNondeducBase += "Nondeductible Base";
+                            TotalVATNondeducBaseAmt += "Nondeductible Base";
+                            TotalRemainUnrealBaseAmt += "Remaining Unrealized Base";
+                            TotalRemainUnrealAmt += "Remaining Unrealized Amount";
+
+                            OnBeforeCheckPrintVATEntries("VAT Entry");
+                            if not PrintVATEntries then
+                                CurrReport.Skip();
+                        end;
+
+                        trigger OnPreDataItem()
+                        begin
+                            "VAT Entry".CopyFilters(VATEntry);
+                            TotalVATNondeducAmnt := 0;
+                            TotalVATNondeducBase := 0;
+                            TotalVATNondeducBaseAmt := 0;
+                            TotalRemainUnrealBaseAmt := 0;
+                            TotalRemainUnrealAmt := 0;
+                        end;
+                    }
+                    dataitem("Close VAT Entries"; "Integer")
+                    {
+                        DataItemTableView = sorting(Number);
+                        MaxIteration = 1;
+                        column(PostingDate1; Format(PostingDate))
+                        {
+                        }
+                        column(GenJnlLineDocumentNo; GenJnlLine."Document No.")
+                        {
+                        }
+                        column(GenJnlLineVATBaseAmount; GenJnlLine."VAT Base Amount")
+                        {
+                            AutoFormatExpression = GetCurrency();
+                            AutoFormatType = 1;
+                        }
+                        column(GenJnlLineVATAmount; GenJnlLine."VAT Amount")
+                        {
+                            AutoFormatExpression = GetCurrency();
+                            AutoFormatType = 1;
+                        }
+                        column(NextVATEntryNo; NextVATEntryNo)
+                        {
+                        }
+                        column(TotalVATNondeducBase; TotalVATNondeducBase)
+                        {
+                        }
+                        column(TotalVATNondeducAmnt; TotalVATNondeducAmnt)
+                        {
+                        }
+                        column(TotalVATNondeducBaseAmt; TotalVATNondeducBaseAmt)
+                        {
+                        }
+                        column(TotalRemainUnrealBaseAmt; TotalRemainUnrealBaseAmt)
+                        {
+                        }
+                        column(TotalRemainUnrealAmt; TotalRemainUnrealAmt)
+                        {
+                        }
+                        column(GenJnlLine2Amount; GenJnlLine2.Amount)
+                        {
+                            AutoFormatExpression = GetCurrency();
+                            AutoFormatType = 1;
+                        }
+                        column(GenJnlLine2DocumentNo; GenJnlLine2."Document No.")
+                        {
+                        }
+                        column(ReversingEntry; ReversingEntry)
+                        {
+                        }
+                        column(GenJnlLineVATBaseAmountCaption; GenJnlLineVATBaseAmountCaptionLbl)
+                        {
+                        }
+
+                        trigger OnAfterGetRecord()
+                        var
+                            IsPostingAllowed: Boolean;
+                        begin
+                            // Calculate amount and base
+                            VATEntry.CalcSums(
+                            Base, Amount,
+                            "Additional-Currency Base", "Additional-Currency Amount");
+
+                            ReversingEntry := false;
+                            // Balancing entries to VAT accounts
+                            GenJnlLine."System-Created Entry" := true;
+                            GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
+                            case VATType of
+                                VATEntry.Type::Purchase:
+                                    GenJnlLine.Description :=
+                                    CopyStr(DelChr(
+                                        StrSubstNo(
+                                        Text007,
+                                        "VAT Posting Setup"."VAT Bus. Posting Group",
+                                        "VAT Posting Setup"."VAT Prod. Posting Group"),
+                                        '>'), 1, 100);
+                                VATEntry.Type::Sale:
+                                    GenJnlLine.Description :=
+                                    CopyStr(DelChr(
+                                        StrSubstNo(
+                                        Text008,
+                                        "VAT Posting Setup"."VAT Bus. Posting Group",
+                                        "VAT Posting Setup"."VAT Prod. Posting Group"),
+                                        '>'), 1, 100);
+                            end;
+                            SetVatPostingSetupToGenJnlLine(GenJnlLine, "VAT Posting Setup");
+                            GenJnlLine."Deductible %" := 100;
+                            GenJnlLine."Posting Date" := PostingDate;
+                            GenJnlLine."Operation Occurred Date" := PostingDate;
+                            if GLSetup."Use Activity Code" then
+                                GenJnlLine."Activity Code" := ActivityCode.Code;
+                            GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
+                            GenJnlLine."Document No." := DocNo;
+                            GenJnlLine."Source Code" := SourceCodeSetup."VAT Settlement";
+                            GenJnlLine."VAT Posting" := GenJnlLine."VAT Posting"::"Manual VAT Entry";
+                            case "VAT Posting Setup"."VAT Calculation Type" of
+                                "VAT Posting Setup"."VAT Calculation Type"::"Normal VAT",
+                                "VAT Posting Setup"."VAT Calculation Type"::"Full VAT":
+                                    begin
+                                        case VATType of
+                                            VATEntry.Type::Purchase:
+                                                begin
+                                                    GenJnlLine."Account No." := "VAT Posting Setup".GetPurchAccount(false);
+                                                    TotalPurchaseAmount := -VATEntry.Amount + TotalPurchaseAmount;
+                                                    AddToTotals(TotalPurchaseAmountPerActivity, ActivityCode.Code, -VATEntry.Amount);
+                                                end;
+                                            VATEntry.Type::Sale:
+                                                begin
+                                                    GenJnlLine."Account No." := "VAT Posting Setup".GetSalesAccount(false);
+                                                    TotalSaleAmount := -VATEntry.Amount + TotalSaleAmount;
+                                                    AddToTotals(TotalSaleAmountPerActivity, ActivityCode.Code, -VATEntry.Amount);
+                                                end;
+                                        end;
+                                        GenJnlLine.Validate(Amount, -VATEntry.Amount);
+                                        CopyAmounts(GenJnlLine, VATEntry);
+                                        if (PostSettlement) and (GenJnlLine."VAT Amount" <> 0) then
+                                            GenJnlPostLine.Run(GenJnlLine);
+                                        VATAmount := VATAmount + VATEntry.Amount;
+                                        VATAmountAddCurr := VATAmountAddCurr + VATEntry."Additional-Currency Amount";
+                                        AddToTotals(VATAmountPerActivity, ActivityCode.Code, VATEntry.Amount);
+                                    end;
+                                "VAT Posting Setup"."VAT Calculation Type"::"Reverse Charge VAT":
+                                    case VATType of
+                                        VATEntry.Type::Purchase:
+                                            begin
+                                                TotalPurchaseAmount := -VATEntry.Amount + TotalPurchaseAmount;
+                                                GenJnlLine."Account No." := "VAT Posting Setup".GetPurchAccount(false);
+                                                GenJnlLine.Validate(Amount, -VATEntry.Amount);
+                                                CopyAmounts(GenJnlLine, VATEntry);
+                                                if (PostSettlement) and (GenJnlLine."VAT Amount" <> 0) then
+                                                    GenJnlPostLine.Run(GenJnlLine);
+                                                VATAmount := VATAmount + VATEntry.Amount;
+                                                VATAmountAddCurr := VATAmountAddCurr + VATEntry."Additional-Currency Amount";
+                                                AddToTotals(VATAmountPerActivity, ActivityCode.Code, VATEntry.Amount);
+                                            end;
+                                        VATEntry.Type::Sale:
+                                            begin
+                                                TotalSaleAmount := -VATEntry.Amount + TotalSaleAmount;
+                                                GenJnlLine."Account No." := "VAT Posting Setup".GetRevChargeAccount(false);
+                                                GenJnlLine.Validate(Amount, -VATEntry.Amount);
+                                                GenJnlLine."Deductible %" := 100;
+                                                CopyAmounts(GenJnlLine, VATEntry);
+                                                GenJnlLine."Gen. Posting Type" := GenJnlLine."Gen. Posting Type"::Settlement;
+                                                if (PostSettlement) and (GenJnlLine."VAT Amount" <> 0) then
+                                                    GenJnlPostLine.Run(GenJnlLine);
+                                                VATAmount := VATAmount + VATEntry.Amount;
+                                                VATAmountAddCurr := VATAmountAddCurr + VATEntry."Additional-Currency Amount";
+                                                AddToTotals(VATAmountPerActivity, ActivityCode.Code, VATEntry.Amount);
+                                            end;
+                                    end;
+                                "VAT Posting Setup"."VAT Calculation Type"::"Sales Tax":
+                                    begin
+                                        TaxJurisdiction.Get(VATEntry."Tax Jurisdiction Code");
+                                        GenJnlLine."Tax Area Code" := TaxJurisdiction.Code;
+                                        GenJnlLine."Use Tax" := VATEntry."Use Tax";
+                                        case VATType of
+                                            VATEntry.Type::Purchase:
+                                                if VATEntry."Use Tax" then begin
+                                                    TaxJurisdiction.TestField("Tax Account (Purchases)");
+                                                    GenJnlLine."Account No." := TaxJurisdiction."Tax Account (Purchases)";
+                                                    GenJnlLine.Validate(Amount, -VATEntry.Amount);
+                                                    CopyAmounts(GenJnlLine, VATEntry);
+                                                    if PostSettlement then
+                                                        GenJnlPostLine.Run(GenJnlLine);
+
+                                                    TaxJurisdiction.TestField("Reverse Charge (Purchases)");
+                                                    CreateGenJnlLine(GenJnlLine2, TaxJurisdiction."Reverse Charge (Purchases)");
+                                                    GenJnlLine2."Tax Area Code" := TaxJurisdiction.Code;
+                                                    GenJnlLine2."Use Tax" := VATEntry."Use Tax";
+                                                    if PostSettlement then
+                                                        GenJnlPostLine.Run(GenJnlLine2);
+                                                    ReversingEntry := true;
+                                                end else begin
+                                                    TaxJurisdiction.TestField("Tax Account (Purchases)");
+                                                    GenJnlLine."Account No." := TaxJurisdiction."Tax Account (Purchases)";
+                                                    GenJnlLine.Validate(Amount, -VATEntry.Amount);
+                                                    CopyAmounts(GenJnlLine, VATEntry);
+                                                    if PostSettlement then
+                                                        GenJnlPostLine.Run(GenJnlLine);
+                                                    VATAmount := VATAmount + VATEntry.Amount;
+                                                    VATAmountAddCurr := VATAmountAddCurr + VATEntry."Additional-Currency Amount";
+                                                    AddToTotals(VATAmountPerActivity, ActivityCode.Code, VATEntry.Amount);
+                                                end;
+                                            VATEntry.Type::Sale:
+                                                begin
+                                                    TaxJurisdiction.TestField("Tax Account (Sales)");
+                                                    GenJnlLine."Account No." := TaxJurisdiction."Tax Account (Sales)";
+                                                    GenJnlLine.Validate(Amount, -VATEntry.Amount);
+                                                    CopyAmounts(GenJnlLine, VATEntry);
+                                                    if PostSettlement then
+                                                        GenJnlPostLine.Run(GenJnlLine);
+                                                    VATAmount := VATAmount + VATEntry.Amount;
+                                                    VATAmountAddCurr := VATAmountAddCurr + VATEntry."Additional-Currency Amount";
+                                                    AddToTotals(VATAmountPerActivity, ActivityCode.Code, VATEntry.Amount);
+                                                end;
+                                        end;
+                                    end;
+                            end;
+                            IsPostingAllowed := ("VAT Posting Setup"."VAT Calculation Type" = "VAT Posting Setup"."VAT Calculation Type"::"Sales Tax") or (GenJnlLine."VAT Amount" <> 0);
+                            NextVATEntryNo := GetSettlementVATEntryNo(PostSettlement, IsPostingAllowed);
+
+                            // Close current VAT entries
+                            if PostSettlement then begin
+                                CloseVATEntriesOnPostSettlement(VATEntry, NextVATEntryNo);
+                                UpdateVATPeriodOnSettlementVATEntry(NextVATEntryNo);
+                            end;
+
+                            FinalUndVATAmnt += TotalVATNondeducAmnt;
+
+                            //PRV - start
+                            //>>PdC 21/07/22L
+                            TotAc := FiscalRoundAmount(TotalPurchaseAmount);
+                            //ImportoProRata:=ROUND(TotaleImpAcquisti*PercPro/100,1);
+                            ImportoProRata := -FiscalRoundAmount(FiscalRoundAmount(TotalPurchaseAmount) * PercPro / 100);
+                            //TotaleImpAcquisti := ImportoProRata;
+                            NuovoIvaNA := TotalSaleAmount + TotalPurchaseAmount;
+                            //<<PdC 21/07/22
+                            //PRV - end
+
+                            TotalSaleRounded := FiscalRoundAmount(PeriodOutputVATYearOutputVATAdvAmt + TotalSaleAmount);
+                            TotalPurchRounded := FiscalRoundAmount(PeriodInputVATYearInputVAT - TotalPurchaseAmount);
+
+                            VATToPay := 0;
+                            // if (TotalSaleRounded - TotalPurchRounded) > 0 then  //PRV - old line
+                            if (TotalSaleRounded - ImportoProRata) > 0 then  //PRV - new line
+                                VATToPay := TotalSaleRounded - TotalPurchRounded;
+
+                            //PRV - start
+                            //>
+                            case TiIVA of
+                                'Acquisto':
+                                    begin
+                                        ImponibileA[sw] += GenJnlLine."VAT Base Amount";
+                                        ImportoA[sw] += GenJnlLine."VAT Amount";
+                                    end;
+
+                                'Vendita':
+                                    begin
+                                        ImponibileV[sw] += GenJnlLine."VAT Base Amount";
+                                        ImportoV[sw] += GenJnlLine."VAT Amount";
+                                    end;
+                            end;
+                            //<
+                            //PRV - end
+                        end;
+                    }
+
+                    trigger OnAfterGetRecord()
+                    begin
+                        VATEntry.Reset();
+                        if GLSetup."Use Activity Code" then
+                            VATEntry.SetFilter("Activity Code", '%1', ActivityCode.Code);
+                        VATEntry.SetRange(Type, VATType);
+                        if PostSettlement then  //PRV - new line
+                            VATEntry.SetRange(Closed, false);
+                        VATEntry.SetFilter("Operation Occurred Date", VATDateFilter);
+                        VATEntry.SetRange("VAT Bus. Posting Group", "VAT Posting Setup"."VAT Bus. Posting Group");
+                        VATEntry.SetRange("VAT Prod. Posting Group", "VAT Posting Setup"."VAT Prod. Posting Group");
+                        if CountryRegionFilter <> '' then
+                            VATEntry.SetFilter("Country/Region Code", CountryRegionFilter);
+                        VATEntry.SetRange("Tax Liable", false);
+                        if PostSettlement then  //PRV - new line
+                            VATEntry.SetRange("VAT Period", '');
+
+                        OnClosingGLAndVATEntryOnAfterGetRecordOnAfterSetVATEntryFilters("VAT Posting Setup", VATEntry, "VAT Entry");
+
+                        case "VAT Posting Setup"."VAT Calculation Type" of
+                            "VAT Posting Setup"."VAT Calculation Type"::"Normal VAT",
+                            "VAT Posting Setup"."VAT Calculation Type"::"Reverse Charge VAT",
+                            "VAT Posting Setup"."VAT Calculation Type"::"Full VAT":
+                                begin
+                                    VATEntry.SetCurrentKey(Type, Closed, "Tax Liable", "VAT Bus. Posting Group", "VAT Prod. Posting Group", "Operation Occurred Date", "VAT Period");
+                                    if FindFirstEntry then begin
+                                        if not VATEntry.Find('-') then
+                                            repeat
+                                                VATType := "General Posting Type".FromInteger((VATType.AsInteger() + 1));
+                                                VATEntry.SetRange(Type, VATType);
+                                                OnClosingGLAndVATEntryOnAfterGetRecordOnNormalVATOnAfterVATEntrySetFilter("VAT Posting Setup", VATType, VATEntry, FindFirstEntry);
+                                            until (VATType = VATEntry.Type::Settlement) or VATEntry.Find('-');
+                                        FindFirstEntry := false;
+                                    end else
+                                        if VATEntry.Next() = 0 then
+                                            repeat
+                                                VATType := "General Posting Type".FromInteger((VATType.AsInteger() + 1));
+                                                VATEntry.SetRange(Type, VATType);
+                                                OnClosingGLAndVATEntryOnAfterGetRecordOnNormalVATOnAfterVATEntrySetFilter("VAT Posting Setup", VATType, VATEntry, FindFirstEntry);
+                                            until (VATType = VATEntry.Type::Settlement) or VATEntry.Find('-');
+                                    if VATType.AsInteger() < VATEntry.Type::Settlement.AsInteger() then
+                                        VATEntry.Find('+');
+                                end;
+                            "VAT Posting Setup"."VAT Calculation Type"::"Sales Tax":
+                                begin
+                                    VATEntry.SetCurrentKey(Type, Closed, "Tax Jurisdiction Code", "Use Tax", "Posting Date");
+                                    if FindFirstEntry then begin
+                                        if not VATEntry.Find('-') then
+                                            repeat
+                                                VATType := "General Posting Type".FromInteger((VATType.AsInteger() + 1));
+                                                VATEntry.SetRange(Type, VATType);
+                                                OnClosingGLAndVATEntryOnAfterGetRecordOnSalesTaxOnAfterVATEntrySetFilter("VAT Posting Setup", VATType, VATEntry, FindFirstEntry);
+                                            until (VATType = VATEntry.Type::Settlement) or VATEntry.Find('-');
+                                        FindFirstEntry := false;
+                                    end else begin
+                                        VATEntry.SetRange("Tax Jurisdiction Code");
+                                        VATEntry.SetRange("Use Tax");
+                                        if VATEntry.Next() = 0 then
+                                            repeat
+                                                VATType := "General Posting Type".FromInteger((VATType.AsInteger() + 1));
+                                                VATEntry.SetRange(Type, VATType);
+                                                OnClosingGLAndVATEntryOnAfterGetRecordOnSalesTaxOnAfterVATEntrySetFilter("VAT Posting Setup", VATType, VATEntry, FindFirstEntry);
+                                            until (VATType = VATEntry.Type::Settlement) or VATEntry.Find('-');
+                                    end;
+                                    if VATType.AsInteger() < VATEntry.Type::Settlement.AsInteger() then begin
+                                        VATEntry.SetRange("Tax Jurisdiction Code", VATEntry."Tax Jurisdiction Code");
+                                        VATEntry.SetRange("Use Tax", VATEntry."Use Tax");
+                                        VATEntry.Find('+');
+                                    end;
+                                end;
+                        end;
+
+                        if VATType = VATEntry.Type::Settlement then
+                            CurrReport.Break();
+
+                        //PRV - start
+                        //>> PdC 21/07/22
+                        recVatId.Get("VAT Posting Setup"."VAT Identifier");
+                        DescrizioneAl := CopyStr(StrSubstNo('%1 %2 %3', "VAT Posting Setup"."VAT Bus. Posting Group", "VAT Posting Setup"."VAT Prod. Posting Group", recVatId.Description), 1, 50);
+                        sw := 0;
+                        for i := 1 to Nal do
+                            if DescrizioneAl = AliquotaDes[i] then
+                                sw := i;
+                        if sw = 0 then begin
+                            Nal += 1;
+                            AliquotaDes[Nal] := DescrizioneAl;
+                            sw := Nal;
+                        end;
+                        TiIVA := CopyStr(VATEntry.GetFilter(Type), 1, 30);
+                        //<< PdC 21/07/22
+                        //PRV - end
+                    end;
+
+                    trigger OnPreDataItem()
+                    begin
+                        VATType := VATEntry.Type::Purchase;
+                        FindFirstEntry := true;
+                    end;
+                }
+                dataitem("Integer"; "Integer")
+                {
+                    DataItemTableView = sorting(Number);
+                    MaxIteration = 1;
+
+                    trigger OnAfterGetRecord()
+                    begin
+                        if (VATBusPostingGroup = "VAT Posting Setup"."VAT Bus. Posting Group") and
+                           (VATProdPostingGroup = "VAT Posting Setup"."VAT Prod. Posting Group")
+                        then begin
+                            //PRV - start
+                            /*
+                            if (TotalSaleRounded - TotalPurchRounded) < 0 then
+                                CreditNextPeriod := -(TotalSaleRounded - TotalPurchRounded);
+                            if (TotalSaleRounded - TotalPurchRounded) > 0 then
+                                if (TotalSaleRounded - TotalPurchRounded) <= GLSetup."Minimum VAT Payable" then
+                                    DebitNextPeriod := TotalSaleRounded - TotalPurchRounded;
+                            */
+
+                            //>29032018
+                            if (TotalSaleRounded - ImportoProRata) < 0 then
+                                CreditNextPeriod := -(TotalSaleRounded - TotalPurchRounded);
+                            if (TotalSaleRounded - ImportoProRata) > 0 then
+                                if (TotalSaleRounded - ImportoProRata) <= GLSetup."Minimum VAT Payable" then
+                                    DebitNextPeriod := TotalSaleRounded - TotalPurchRounded;
+                            //<29032018
+                            //PRV - end
+                        end;
+                    end;
+                }
+                trigger OnAfterGetRecord()
+                begin
+                    if (Number = 1) and GLSetup."Use Activity Code" then
+                        ActivityCode.FindSet();
+                    if (Number = 2) and not GLSetup."Use Activity Code" then
+                        CurrReport.Break();
+                    if (Number >= 2) and GLSetup."Use Activity Code" then
+                        if ActivityCode.Next() = 0 then
+                            CurrReport.Break();
+                end;
+            }
+
+            trigger OnPostDataItem()
+            begin
+                // Post to settlement account
+                if VATAmount <> 0 then begin
+                    GenJnlLine.Init();
+                    GenJnlLine."System-Created Entry" := true;
+                    GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
+                    GenJnlLine.Validate("Account No.", GLAccSettle."No.");
+                    GenJnlLine."Posting Date" := PostingDate;
+                    GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
+                    GenJnlLine."Document No." := DocNo;
+                    GenJnlLine.Description := Text004;
+                    GenJnlLine.Validate(Amount, VATAmount);
+                    GenJnlLine."Source Currency Code" := GLSetup."Additional Reporting Currency";
+                    GenJnlLine."Source Currency Amount" := VATAmountAddCurr;
+                    GenJnlLine."Source Code" := SourceCodeSetup."VAT Settlement";
+                    GenJnlLine."VAT Posting" := GenJnlLine."VAT Posting"::"Manual VAT Entry";
+                    GenJnlLine."Operation Occurred Date" := PostingDate;
+
+                    ImportoProRata := FiscalRoundAmount(FiscalRoundAmount(TotalPurchaseAmount) * PercPro / 100);  //PRV - new line
+
+                    if PostSettlement then begin
+                        GenJnlPostLine.Run(GenJnlLine);
+
+                        // NewVATAmount := TotalPurchRounded - TotalSaleRounded;  //PRV - old line
+                        NewVATAmount := TotalPurchRounded - TotalSaleRounded + ImportoProRata;  //PRV - new line
+                        if NewVATAmount > 0 then
+                            CreditNextPeriod := NewVATAmount
+                        else
+                            // VAT Settlement
+                            if -NewVATAmount <= GLSetup."Minimum VAT Payable" then
+                                DebitNextPeriod := NewVATAmount;
+
+                        // Post Rounding Amount to Settlement Account
+                        RoundAmount := -VATAmount -
+                          (FiscalRoundAmount(TotalSaleAmount) + FiscalRoundAmount(TotalPurchaseAmount));
+
+                        if RoundAmount <> 0 then begin
+                            GenJnlLine.Init();
+                            GenJnlLine."System-Created Entry" := true;
+                            GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
+                            GenJnlLine.Validate("Account No.", GLAccSettle."No.");
+                            GenJnlLine."Posting Date" := PostingDate;
+                            GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
+                            GenJnlLine."Document No." := DocNo;
+                            GenJnlLine.Description := Text1130006;
+                            GenJnlLine.Validate(Amount, RoundAmount);
+                            GenJnlLine."Source Code" := SourceCodeSetup."VAT Settlement";
+                            GenJnlLine."VAT Posting" := GenJnlLine."VAT Posting"::"Manual VAT Entry";
+                            GenJnlLine."Operation Occurred Date" := PostingDate;
+                            GenJnlPostLine.Run(GenJnlLine);
+                            // Post Rounding Amount to Settlement Account
+                            GenJnlLine.Init();
+                            GenJnlLine."System-Created Entry" := true;
+                            GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
+                            if RoundAmount > 0 then
+                                GenJnlLine.Validate("Account No.", GLAccPosRounding."No.")
+                            else
+                                GenJnlLine.Validate("Account No.", GLAccNegRounding."No.");
+                            GenJnlLine."Posting Date" := PostingDate;
+                            GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
+                            GenJnlLine."Document No." := DocNo;
+                            GenJnlLine.Description := Text1130006;
+                            GenJnlLine.Validate(Amount, -RoundAmount);
+                            GenJnlLine."Source Code" := SourceCodeSetup."VAT Settlement";
+                            GenJnlLine."VAT Posting" := GenJnlLine."VAT Posting"::"Manual VAT Entry";
+                            GenJnlLine."Operation Occurred Date" := PostingDate;
+                            GenJnlPostLine.Run(GenJnlLine);
+                        end;
+
+                        //PRV - start
+                        //>> PdC 21/07/22
+                        GenJnlLine.Init();
+                        GenJnlLine."System-Created Entry" := true;
+                        GenJnlLine."Account Type" := GenJnlLine."Account Type"::"G/L Account";
+                        GenJnlLine.Validate("Account No.", GLAccSettle."No.");
+                        GenJnlLine."Posting Date" := PostingDate;
+                        GenJnlLine."Document Type" := GenJnlLine."Document Type"::" ";
+                        DocNo := StrSubstNo('%1', DocNo);
+                        GenJnlLine."Document No." := DocNo;
+                        GenJnlLine.Description := 'Storno ProRata';
+                        GenJnlLine.Validate(Amount, ImportoProRata);
+                        GenJnlLine."Source Currency Code" := GLSetup."Additional Reporting Currency";
+                        GenJnlLine."Source Currency Amount" := ImportoProRata;
+                        GenJnlLine."Source Code" := SourceCodeSetup."VAT Settlement";
+                        GenJnlLine."VAT Posting" := GenJnlLine."VAT Posting"::"Manual VAT Entry";
+                        GenJnlLine."Operation Occurred Date" := PostingDate;
+                        GenJnlLine."Bal. Account Type" := GenJnlLine."Bal. Account Type"::"G/L Account";
+                        GenJnlLine.Validate("Bal. Account No.", ContoPro);
+                        GenJnlPostLine.Run(GenJnlLine);
+                        //<< PdC 21/07/22
+                        //PRV - end
+
+                        UpdatePeriodicSettlementVATEntryActivityCode();
+                    end;
+                end else
+                    if PostSettlement then
+                        UpdatePeriodicSettlementVATEntryActivityCode();
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                GLEntry.LockTable(); // Avoid deadlock with function 12
+                if GLEntry.FindLast() then;
+                VATEntry.LockTable();
+                VATEntry.Reset();
+                NextVATEntryNo := VATEntry.GetLastEntryNo();
+
+                SourceCodeSetup.Get();
+                GLSetup.Get();
+                VATAmount := 0;
+                VATAmountAddCurr := 0;
+                TotalSaleAmount := 0;
+                TotalPurchaseAmount := 0;
+                if UseAmtsInAddCurr then
+                    HeaderText := StrSubstNo(AllAmountsAreInTxt, GLSetup."Additional Reporting Currency")
+                else begin
+                    GLSetup.TestField("LCY Code");
+                    HeaderText := StrSubstNo(AllAmountsAreInTxt, GLSetup."LCY Code");
+                end;
+
+                if FindLast() then begin
+                    VATBusPostingGroup := "VAT Bus. Posting Group";
+                    VATProdPostingGroup := "VAT Prod. Posting Group";
+                end;
+
+                //>> PdC 21/07/22
+                ImportoProRata := 0;
+                ContoPro := GLSetup."PRV Pro-Rata Account";
+                PercPro := GLSetup."PRV % Pro-Rata";
+                //<< PdC 21/07/22
+            end;
+        }
+        dataitem(Total; "Integer")
+        {
+            DataItemTableView = sorting(Number) where(Number = const(1));
+            column(DebitNextPeriodCaption; DebitNextPeriodCaptionLbl)
+            {
+            }
+            column(CreditNextPeriodCaption; CreditNextPeriodCaptionLbl)
+            {
+            }
+            column(VATAmountAddCurrCaption; VATAmountAddCurrCaptionLbl)
+            {
+            }
+            column(DebitNextPeriod; DebitNextPeriod)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(CreditNextPeriod; CreditNextPeriod)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(VATAmountAddCurr; VATAmountAddCurr)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+        }
+        dataitem(VATPlafondPeriod; "VAT Plafond Period")
+        {
+            DataItemTableView = sorting(Year);
+            column(RemainingVATPlafondAmount; PrevPlafondAmount - UsedPlafondAmount)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(UsedPlafondAmount; UsedPlafondAmount)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(PrevPlafondAmount; PrevPlafondAmount)
+            {
+                AutoFormatExpression = GetCurrency();
+                AutoFormatType = 1;
+            }
+            column(VATPlafondPeriodYear; Year)
+            {
+            }
+            column(RemainingVATPlafondAmountCaption; RemainingVATPlafondAmountCaptionLbl)
+            {
+            }
+            column(UsedPlafondAmountCaption; UsedPlafondAmountCaptionLbl)
+            {
+            }
+            column(PrevPlafondAmountCaption; PrevPlafondAmountCaptionLbl)
+            {
+            }
+
+            trigger OnAfterGetRecord()
+            begin
+                CalcAmounts(EntrdStartDate, EndDateReq, UsedPlafondAmount, PrevPlafondAmount);
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                SetRange(Year, Date2DMY(EndDateReq, 3));
+            end;
+        }
+        dataitem(Total2_Label; "Integer")  //PRV - new 
+        {
+            DataItemTableView = SORTING(Number) WHERE(Number = CONST(1));
+            column(TxtTotal2_DescAliq; TxtTotal2_DescAliq)
+            {
+            }
+            column(TxtTotal2_Vendite; TxtTotal2_Vendite)
+            {
+            }
+            column(TxtTotal2_Acquisti; TxtTotal2_Acquisti)
+            {
+            }
+            column(TxtTotal2_Imp; TxtTotal2_Imp)
+            {
+            }
+            column(TxtTotal2_Iva; TxtTotal2_Iva)
+            {
+            }
+
+            trigger OnAfterGetRecord()
+            begin
+                //>> PdC 21/07/22
+                TImpA += ImponibileA[Number];
+                TivaA += ImportoA[Number];
+                TimpV += ImponibileV[Number];
+                TivaV += ImportoV[Number];
+                //<< PdC 21/07/22
+
+                if Number = Nal then begin
+                    DetraibilePro := Round(TivaA * (100 - PercPro) / 100, 0.01);
+                    IvaDeb := FiscalRoundAmount(TivaV);
+                    IvaCre := -FiscalRoundAmount(DetraibilePro);
+                    DebitoP := IvaDeb - IvaCre;
+                    CreditoP := IvaCre - IvaDeb;
+                    if DebitoP < 0 then DebitoP := 0;
+                    if CreditoP < 0 then CreditoP := 0;
+                    DebitoP1 := -CreditoP + DebitoP - PriorPeriodVATEntry."Prior Period Input VAT";
+                    DebitoP1 += PriorPeriodVATEntry."Prior Period Output VAT";
+                    if DebitoP1 < 0 then begin
+                        CreditoP1 := -DebitoP1;
+                        DebitoP1 := 0;
+                    end
+                    else
+                        CreditoP1 := 0;
+
+                    DebitoF := DebitoP1;
+                    CreditoF := CreditoP1;
+
+                    blnPrintTotal2 := true;
+                end;
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                //>> PdC 21/07/22
+                SetRange(Number, 1, Nal);
+                TImpA := 0;
+                TivaA := 0;
+                TimpV := 0;
+                TivaV := 0;
+                //<< PdC 21/07/22
+
+                txtDetrProRataCaption := StrSubstNo(IndetraibileProRataTxt, PercPro);
+                blnPrintTotal2 := false
+            end;
+        }
+        dataitem(Total2; "Integer")  //PRV - new 
+        {
+            DataItemTableView = SORTING(Number);
+            column(blnPrintTotal2; blnPrintTotal2)
+            {
+            }
+            column(TxtTotal2_Totali; TxtTotal2_Totali)
+            {
+            }
+            column(TxtTotal2_TotIvaDebCre; TxtTotal2_TotIvaDebCre)
+            {
+            }
+            column(TxtTotal2_DebCrePer; TxtTotal2_DebCrePer)
+            {
+            }
+            column(TxtTotal2_Variazioni; TxtTotal2_Variazioni)
+            {
+            }
+            column(TxtTotal2_IvaNonVersata; TxtTotal2_IvaNonVersata)
+            {
+            }
+            column(TxtTotal2_DebCrePerPrec; TxtTotal2_DebCrePerPrec)
+            {
+            }
+            column(TxtTotal2_CredIva; TxtTotal2_CredIva)
+            {
+            }
+            column(TxtTotal2_DebCrePer2; TxtTotal2_DebCrePer2)
+            {
+            }
+            column(TxtTotal2_CredSpecImposta; TxtTotal2_CredSpecImposta)
+            {
+            }
+            column(TxtTotal2_InteressiLiquid; TxtTotal2_InteressiLiquid)
+            {
+            }
+            column(TxtTotal2_AccontoVersato; TxtTotal2_AccontoVersato)
+            {
+            }
+            column(TxtTotal2_DEBITOCREDITO; TxtTotal2_DEBITOCREDITO)
+            {
+            }
+            column(TxtTotal2_DetProrRata; StrSubstNo(IndetraibileProRataTxt, GLSetup."PRV % Pro-Rata"))
+            {
+            }
+            column(AliquotaDes; AliquotaDes[Number])
+            {
+            }
+            column(ImponibileV; ImponibileV[Number])
+            {
+            }
+            column(ImportoV; ImportoV[Number])
+            {
+            }
+            column(TimpV; TimpV)
+            {
+            }
+            column(TivaV; TivaV)
+            {
+            }
+            column(ImponibileA; -ImponibileA[Number])
+            {
+            }
+            column(ImportoA; -ImportoA[Number])
+            {
+            }
+            column(DetraibileProV; -DetraibilePro)
+            {
+            }
+            column(IvaDeb; IvaDeb)
+            {
+            }
+            column(DebitoP; DebitoP)
+            {
+            }
+            column(PriorPeriodOutputVAT; -PriorPeriodVATEntry."Prior Period Output VAT")
+            {
+            }
+            column(DebitoP1; DebitoP1)
+            {
+            }
+            column(TImpA; -TImpA)
+            {
+            }
+            column(TivaA; -TivaA)
+            {
+            }
+            column(DetraibileProA; DetraibilePro)
+            {
+            }
+            column(IvaCre; IvaCre)
+            {
+            }
+            column(CreditoP; CreditoP)
+            {
+            }
+            column(PriorPeriodInputVAT; PriorPeriodVATEntry."Prior Period Input VAT")
+            {
+            }
+            column(CreditoP1; CreditoP1)
+            {
+            }
+            column(DebitoF; DebitoF)
+            {
+            }
+            column(CreditoF; CreditoF)
+            {
+            }
+
+            trigger OnAfterGetRecord()
+            begin
+                //>> PdC 21/07/22
+                TImpA += ImponibileA[Number];
+                TivaA += ImportoA[Number];
+                TimpV += ImponibileV[Number];
+                TivaV += ImportoV[Number];
+                //<<PdC 21/07/22
+
+                if Number = Nal then begin
+                    DetraibilePro := Round(TivaA * (100 - PercPro) / 100, 0.01);
+                    IvaDeb := FiscalRoundAmount(TivaV);
+                    IvaCre := -FiscalRoundAmount(DetraibilePro);
+                    DebitoP := IvaDeb - IvaCre;
+                    CreditoP := IvaCre - IvaDeb;
+                    if DebitoP < 0 then DebitoP := 0;
+                    if CreditoP < 0 then CreditoP := 0;
+                    DebitoP1 := -CreditoP + DebitoP - PriorPeriodVATEntry."Prior Period Input VAT";
+                    DebitoP1 += PriorPeriodVATEntry."Prior Period Output VAT";
+                    if DebitoP1 < 0 then begin
+                        CreditoP1 := -DebitoP1;
+                        DebitoP1 := 0;
+                    end
+                    else
+                        CreditoP1 := 0;
+
+                    DebitoF := DebitoP1;
+                    CreditoF := CreditoP1;
+
+                    blnPrintTotal2 := true;
+                end;
+            end;
+
+            trigger OnPreDataItem()
+            begin
+                //>> CL01 03/06/10 DAAL
+                SetRange(Number, 1, Nal);
+                TImpA := 0;
+                TivaA := 0;
+                TimpV := 0;
+                TivaV := 0;
+                //<< CL01 03/06/10 DAAL
+
+                txtDetrProRataCaption := StrSubstNo(IndetraibileProRataTxt, PercPro);
+                blnPrintTotal2 := false
+            end;
+        }
+    }
+
+    requestpage
+    {
+        AboutTitle = 'About Calc. and Post VAT Settlement';
+        AboutText = 'The **Calculate and Post Tax Settlement** report calculates VAT based on posted entries and generates a journal to record the VAT settlement. Use it for automating VAT processing at the end of a filing period (typically monthly or quarterly) by posting the net VAT due or refundable, helping streamline tax reporting and compliance.';
+        SaveValues = true;
+        ShowFilter = false;
+
+        layout
+        {
+            area(content)
+            {
+                group(Options)
+                {
+                    Caption = 'Options';
+                    field(StartingDate; EntrdStartDate)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Starting Date';
+                        ToolTip = 'Specifies the first date in the period from which VAT entries are processed in the batch job.';
+
+                        trigger OnValidate()
+                        begin
+                            // if (GLSetup."Last Settlement Date" <> 0D) then  //PRV - old line
+                            // if not ((EntrdStartDate - GLSetup."Last Settlement Date") = 1) then Error(Text1130007, GLSetup."Last Settlement Date");  //PRV - old line
+
+                            CalculateEndDate();
+
+                            //PRV - start
+                            //>>PDC 28/01/13
+                            PostSettlementEditable := true;
+
+                            if (GLSetup."Last Settlement Date" <> 0D) then
+                                if not ((EntrdStartDate - GLSetup."Last Settlement Date") = 1) then begin
+                                    PostSettlement := false;
+                                    PostSettlementEditable := false;
+                                end;
+                            //<<PDC
+                            //PRV - end
+                        end;
+                    }
+                    field(EndingDate; EndDateReq)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Ending Date';
+                        // Editable = false;  //PRV - old line
+                        ToolTip = 'Specifies the last date in the period from which VAT entries are processed in the batch job. ';
+                    }
+                    field(PostingDt; PostingDate)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Posting Date';
+                        ToolTip = 'Specifies the date on which the transfer to the VAT account is posted. This field must be filled in.';
+                    }
+                    field(DocumentNo; DocNo)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Document No.';
+                        ToolTip = 'Specifies a document number. This field must be filled in.';
+                    }
+                    field(SettlementAcc; GLAccSettle."No.")
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Settlement Account';
+                        TableRelation = "G/L Account";
+                        ToolTip = 'Specifies the number of the VAT settlement account. Select the field to see the chart of account. This field must be filled in.';
+
+                        trigger OnValidate()
+                        begin
+                            if GLAccSettle."No." <> '' then begin
+                                GLAccSettle.Find();
+                                GLAccSettle.CheckGLAcc();
+                            end;
+                        end;
+                    }
+                    field(GLGainsAccount; GLAccPosRounding."No.")
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'G/L Gains Account';
+                        TableRelation = "G/L Account";
+                        ToolTip = 'Specifies the general ledger account for gains.';
+                    }
+                    field(GLLossesAccount; GLAccNegRounding."No.")
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'G/L Losses Account';
+                        TableRelation = "G/L Account";
+                        ToolTip = 'Specifies the general ledger account for losses.';
+                    }
+                    field(ShowVATEntries; PrintVATEntries)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Show VAT Entries';
+                        ToolTip = 'Specifies if you want the report that is printed during the batch job to contain the individual VAT entries. If you do not choose to print the VAT entries, the settlement amount is shown only for each VAT posting group.';
+                    }
+                    field(Post; PostSettlement)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Post';
+                        Editable = PostSettlementEditable;  //PRV - new line
+                        ToolTip = 'Specifies if you want the program to post the transfer to the VAT settlement account automatically. If you do not choose to post the transfer, the batch job only prints a test report, and Test Report (not Posted) appears on the report.';
+                    }
+                    field(AmtsinAddReportingCurr; UseAmtsInAddCurr)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Show Amounts in Add. Reporting Currency';
+                        MultiLine = true;
+                        ToolTip = 'Specifies if the reported amounts are shown in the additional reporting currency.';
+                    }
+                    field("Country/Region Filter"; CountryRegionFilter)
+                    {
+                        ApplicationArea = Basic, Suite;
+                        Caption = 'Country/Region Filter';
+                        ToolTip = 'Specifies the country/region to filter the VAT entries.';
+                        Importance = Additional;
+
+                        trigger OnLookup(var Text: Text): Boolean
+                        var
+                            CountryRegion: Record "Country/Region";
+                            CountriesRegions: Page "Countries/Regions";
+                        begin
+                            CountriesRegions.LookupMode(true);
+                            if CountriesRegions.RunModal() = Action::LookupOK then begin
+                                CountriesRegions.GetRecord(CountryRegion);
+                                CountryRegionFilter := CountryRegion.Code;
+                                exit(true);
+                            end;
+                            exit(false);
+                        end;
+                    }
+                }
+            }
+        }
+
+        actions
+        {
+        }
+
+        //PRV - start
+        trigger OnInit()
+        begin
+            PostSettlementEditable := true;
+        end;
+        //PRV - end
+
+        trigger OnOpenPage()
+        begin
+            GetGLSetup();
+            GLSetup.TestField("Last Settlement Date");
+            if GLSetup."Last Settlement Date" <> 0D then begin
+                EntrdStartDate := GLSetup."Last Settlement Date" + 1;
+                CalculateEndDate();
+            end;
+        end;
+    }
+
+    labels
+    {
+    }
+
+    trigger OnPostReport()
+    begin
+        if GenJnlPostLine.IsGLEntryInconsistent() then
+            GenJnlPostLine.ShowInconsistentEntries();
+        OnAfterPostReport();
+    end;
+
+    trigger OnPreReport()
+    var
+        ConfirmManagement: Codeunit "Confirm Management";
+        ITReportManagement: Codeunit "IT - Report Management";
+    begin
+        OnBeforePreReport("VAT Posting Setup", PostSettlement, GLAccSettle, DocNo);
+
+        GetGLSetup();
+        if EndDateReq = 0D then
+            Error(Text1130000);
+
+        ITReportManagement.CheckSalesDocNoGaps(EndDateReq, true, false);
+        ITReportManagement.CheckPurchDocNoGaps(EndDateReq, true, false);
+
+        if PostSettlement then begin
+            if EntrdStartDate <= GLSetup."Last Settlement Date" then
+                Error(Text1130001, GLSetup."Last Settlement Date");
+            if PostingDate = 0D then
+                Error(Text000);
+            if PostingDate < EndDateReq then
+                Error(Text1130002);
+            if DocNo = '' then
+                Error(Text001);
+            if GLAccSettle."No." = '' then
+                Error(Text002);
+            GLAccSettle.Find();
+            if GLAccPosRounding."No." = '' then
+                Error(Text1130003);
+            GLAccPosRounding.Find();
+            if GLAccNegRounding."No." = '' then
+                Error(Text1130004);
+            GLAccNegRounding.Find();
+        end;
+
+        if EntrdStartDate > EndDateReq then
+            Error(Text1130005);
+
+        if PostSettlement and not Initialized then
+            if not ConfirmManagement.GetResponseOrDefault(Text003, true) then
+                CurrReport.Quit();
+
+        VATPostingSetupFilter := "VAT Posting Setup".GetFilters();
+        if EntrdStartDate = 0D then
+            VATEntry.SetFilter("Operation Occurred Date", '..%1', EndDateReq)
+        else
+            VATEntry.SetRange("Operation Occurred Date", EntrdStartDate, EndDateReq);
+        VATDateFilter := VATEntry.GetFilter("Operation Occurred Date");
+        Clear(GenJnlPostLine);
+        VATPeriod := Format(Date2DMY(EndDateReq, 3)) + '/' +
+                     ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0');
+
+        if VATSetup.Get() then;
+        if VATSetup."Per Activity Code Settl. Entry" then begin
+            GLSetup.TestField("Use Activity Code");
+            ValidatePreviousEntrySplit();
+        end;
+
+        InitializeTotals();
+
+        if PostSettlement then
+            GenJnlPostLine.SetIgnoreJournalTemplNameMandatoryCheck();
+        OnAfterPreReport("VAT Entry");
+    end;
+
+    var
+        SourceCodeSetup: Record "Source Code Setup";
+        GenJnlLine: Record "Gen. Journal Line";
+        GenJnlLine2: Record "Gen. Journal Line";
+        GLEntry: Record "G/L Entry";
+        VATEntry: Record "VAT Entry";
+        TaxJurisdiction: Record "Tax Jurisdiction";
+        GLSetup: Record "General Ledger Setup";
+        ActivityCode: Record "Activity Code";
+        VATSetup: Record "VAT Setup";
+        GenJnlPostLine: Codeunit "Gen. Jnl.-Post Line";
+        PrintVATEntries: Boolean;
+        NextVATEntryNo: Integer;
+        LastVATEntryNo: Integer;
+        PostingDate: Date;
+        DocNo: Code[20];
+        VATType: Enum "General Posting Type";
+        VATAmount: Decimal;
+        VATAmountAddCurr: Decimal;
+        FindFirstEntry: Boolean;
+        ReversingEntry: Boolean;
+        Initialized: Boolean;
+        VATPostingSetupFilter: Text;
+        VATDateFilter: Text;
+        UseAmtsInAddCurr: Boolean;
+        HeaderText: Text[30];
+        CountryRegionFilter: Text;
+        Data: Record Date;
+        GLAccPosRounding: Record "G/L Account";
+        GLAccNegRounding: Record "G/L Account";
+        VATPeriod: Code[10];
+        VATBusPostingGroup: Code[20];
+        VATProdPostingGroup: Code[20];
+        TotalSaleAmount: Decimal;
+        TotalPurchaseAmount: Decimal;
+        TotalPurchRounded: Decimal;
+        TotalSaleRounded: Decimal;
+        VATAmountPerActivity, TotalSaleAmountPerActivity, TotalPurchaseAmountPerActivity, TotalPurchRoundedPerActivity, TotalSaleRoundedPerActivity : Dictionary of [Code[6], Decimal];
+        CreditNextPeriod: Decimal;
+        DebitNextPeriod: Decimal;
+        NewVATAmount: Decimal;
+        RoundAmount: Decimal;
+        VATToPay: Decimal;
+        TotalVATNondeducAmnt: Decimal;
+        FinalUndVATAmnt: Decimal;
+        TotalVATNondeducBase: Decimal;
+        PrevPlafondAmount: Decimal;
+        UsedPlafondAmount: Decimal;
+        GLSetupGet: Boolean;
+        TotalVATNondeducBaseAmt: Decimal;
+        TotalRemainUnrealBaseAmt: Decimal;
+        TotalRemainUnrealAmt: Decimal;
+        PeriodInputVATYearInputVAT: Decimal;
+        PeriodOutputVATYearOutputVATAdvAmt: Decimal;
+        Text000: Label 'Enter the posting date.';
+        Text001: Label 'Enter the document no.';
+        Text002: Label 'Enter the settlement account.';
+        Text003: Label 'Do you want to calculate and post the VAT Settlement?';
+        Text004: Label 'VAT Settlement';
+        Text005: Label 'Period: %1';
+        AllAmountsAreInTxt: Label 'All amounts are in %1.', Comment = '%1 = Currency Code';
+        Text007: Label 'Purchase VAT settlement: #1######## #2########';
+        Text008: Label 'Sales VAT settlement  : #1######## #2########';
+        TestReportnotpostedCaptionLbl: Label 'Test Report (Not Posted)';
+        CalcandPostVATSettlementCaptionLbl: Label 'Calc. and Post VAT Settlement';
+        DocNoCaptionLbl: Label 'Document No.';
+        GLAccSettleNoCaptionLbl: Label 'Settlement Account';
+        VATEntryPostingDateCaptionLbl: Label 'Posting Date';
+        VATEntryDocumentTypeCaptionLbl: Label 'Doc Type';
+        TotalSaleAmountTotalPurchaseAmountCaptionLbl: Label 'VAT';
+        TotalSaleAmountCaptionLbl: Label 'Output VAT';
+        PriorPeriodVATEntryPriorPeriodOutputVATPriorPeriodVATEntryPriorYearOutputVATPriorPeriodVATEntryAdvancedAmountCaptionLbl: Label 'Prior Period Output VAT';
+        TotalPurchaseAmountCaptionLbl: Label 'Input VAT';
+        PriorPeriodVATEntryPriorPeriodInputVATPriorPeriodVATEntryPriorYearInputVATCaptionLbl: Label 'Prior Period Input VAT';
+        FinalUndVATAmntCaptionLbl: Label 'Nondeductible Amount';
+        TotalSaleRoundedCaptionLbl: Label 'Output VAT (Rounded)';
+        TotalPurchRoundedCaptionLbl: Label 'Input VAT (Rounded)';
+        VATToPayCaptionLbl: Label 'Total VAT to pay (if positive)';
+        DebitNextPeriodCaptionLbl: Label 'Next Period Output VAT';
+        CreditNextPeriodCaptionLbl: Label 'Next Period Input VAT';
+        VATAmountAddCurrCaptionLbl: Label 'Total';
+        GenJnlLineVATBaseAmountCaptionLbl: Label 'Settlement';
+        RemainingVATPlafondAmountCaptionLbl: Label 'Remaining VAT Plafond Amount';
+        UsedPlafondAmountCaptionLbl: Label 'Used VAT Plafond Amount';
+        PrevPlafondAmountCaptionLbl: Label 'Previous VAT Plafond Amount';
+        Text1130000: Label 'Please enter the ending date.';
+        Text1130001: Label 'Start Date must be greaten than the last Settlement Date :%1';
+        Text1130002: Label 'Posting Date cannot be less than the Ending Date';
+        Text1130003: Label 'Please enter the G/L Gains  Account';
+        Text1130004: Label 'Please enter the G/L Losses Account';
+        Text1130005: Label 'Ending Date cannot be less than Starting Date';
+        Text1130006: Label 'VAT Settlement Rounding +/-';
+        Text1130007: Label 'The last settlement date is %1';
+        Text1130008: Label 'The %1 in %2 must not be Blank';
+        SplitValidationErr: Label 'Before using Per Activity Code Settlement Entry, you must split the previous entries amounts per activity code manually using "Split Periodic Entry" action on Periodic VAT Settlemnt List page.';
+        //PRV - start
+        ContiCG: Record "G/L Account";
+        ImportoProRata: Decimal;
+        ContoPro: Code[20];
+        PercPro: Decimal;
+        TotAc: Decimal;
+        TotaleImpAcquisti: Decimal;
+        NuovoIvaNA: Decimal;
+        TotaleImpVendite: Decimal;
+        TImpA: Decimal;
+        TivaA: Decimal;
+        TimpV: Decimal;
+        TivaV: Decimal;
+        ImponibileA: array[40] of Decimal;
+        ImponibileV: array[40] of Decimal;
+        ImportoA: array[40] of Decimal;
+        ImportoV: array[40] of Decimal;
+        ImponibileInd: array[40] of Decimal;
+        ImportoInd: array[40] of Decimal;
+        AliquotaDes: array[40] of Text[50];
+        DetraibilePro: Decimal;
+        IvaDeb: Decimal;
+        IvaCre: Decimal;
+        DebitoP: Decimal;
+        CreditoP: Decimal;
+        DebitoP1: Decimal;
+        CreditoP1: Decimal;
+        DebitoF: Decimal;
+        CreditoF: Decimal;
+        i: Integer;
+        Nal: Integer;
+        sw: Integer;
+        DescrizioneAl: Text[50];
+        TiIVA: Text[30];
+        recVatId: Record "VAT Identifier";
+        PostSettlementEditable: Boolean;
+        txtDetrProRataCaption: Text;
+        "//Total2": Label 'Total2';
+        TxtTotal2_Vendite: Label 'Vendite';
+        TxtTotal2_DescAliq: Label 'Descrizione Aliquota';
+        TxtTotal2_Imp: Label 'Imponibile';
+        TxtTotal2_Iva: Label 'Iva';
+        TxtTotal2_Acquisti: Label 'Acquisti';
+        TxtTotal2_Totali: Label 'Totali';
+        TxtTotal2_TotIvaDebCre: Label 'Totali iva Debito/Credito Arrotondati';
+        TxtTotal2_DebCrePer: Label 'Debito/Credito del periodo';
+        TxtTotal2_Variazioni: Label 'Variazioni d''Imposta periodi precedenti';
+        TxtTotal2_IvaNonVersata: Label 'Iva non versata periodi precedenti';
+        TxtTotal2_DebCrePerPrec: Label 'Debito/Credito del periodo precedente';
+        TxtTotal2_CredIva: Label 'Credito Iva Compensabile portato in detrazione';
+        TxtTotal2_DebCrePer2: Label 'Debito/Credito del periodo';
+        TxtTotal2_CredSpecImposta: Label 'Crediti Speciali d''Imposta detratti';
+        TxtTotal2_InteressiLiquid: Label 'Interessi dovuti liquidazioni trimestrali';
+        TxtTotal2_AccontoVersato: Label 'Acconto Versato';
+        TxtTotal2_DEBITOCREDITO: Label 'DEBITO/CREDITO';
+        blnPrintTotal2: Boolean;
+        Tipo: Option "VAT Settl - Purchase","VAT Settl - Sale","VAT Settl VAT","VAT Settl Rounding ";
+        IndetraibileProRataTxt: Label 'Indetraibile Pro-Rata %1', Locked = true;
+
+
+    protected var
+        GLAccSettle: Record "G/L Account";
+        PostSettlement: Boolean;
+        EntrdStartDate: Date;
+        EndDateReq: Date;
+
+    procedure InitializeRequest(NewStartDate: Date; NewEndDate: Date; NewPostingDate: Date; NewDocNo: Code[20]; NewSettlementAcc: Code[20]; NewPosRoundAcc: Code[20]; NewNegRoundAcc: Code[20]; ShowVATEntries: Boolean; Post: Boolean)
+    begin
+        EntrdStartDate := NewStartDate;
+        EndDateReq := NewEndDate;
+        PostingDate := NewPostingDate;
+        DocNo := NewDocNo;
+        GLAccSettle."No." := NewSettlementAcc;
+        GLAccPosRounding."No." := NewPosRoundAcc;
+        GLAccNegRounding."No." := NewNegRoundAcc;
+        PrintVATEntries := ShowVATEntries;
+        PostSettlement := Post;
+        Initialized := true;
+    end;
+
+    local procedure AddToTotals(TotalDictionary: Dictionary of [Code[6], Decimal]; ActivityCodeParam: Code[6]; Amount: Decimal)
+    begin
+        if not VATSetup."Per Activity Code Settl. Entry" then
+            exit;
+
+        if TotalDictionary.ContainsKey(ActivityCodeParam) then
+            TotalDictionary.Set(ActivityCodeParam, TotalDictionary.Get(ActivityCodeParam) + Amount)
+        else
+            TotalDictionary.Add(ActivityCodeParam, Amount);
+    end;
+
+    local procedure GetTotalOrZero(TotalDictionary: Dictionary of [Code[6], Decimal]; ActivityCodeParam: Code[6]): Decimal
+    begin
+        if TotalDictionary.ContainsKey(ActivityCodeParam) then
+            exit(TotalDictionary.Get(ActivityCodeParam));
+        exit(0);
+    end;
+
+    local procedure SafeSet(ToDictionary: Dictionary of [Code[6], Decimal]; ActivityCodeKey: Code[6]; Value: Decimal)
+    begin
+        if ToDictionary.ContainsKey(ActivityCodeKey) then
+            ToDictionary.Set(ActivityCodeKey, Value)
+        else
+            ToDictionary.Add(ActivityCodeKey, Value);
+    end;
+
+    local procedure InitializeTotals()
+    var
+        ActivityCodeLocal: Record "Activity Code";
+    begin
+        if VATSetup."Per Activity Code Settl. Entry" then begin
+            if ActivityCodeLocal.FindSet() then
+                repeat
+                    InitializeValuesFromPriorPeriodEntry(ActivityCodeLocal.Code);
+                until ActivityCodeLocal.Next() = 0;
+        end else
+            InitializeValuesFromPriorPeriodEntry();
+    end;
+
+    local procedure InitializeValuesFromPriorPeriodEntry()
+    var
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+    begin
+        PeriodicVATSettlementEntry.SetRange("VAT Period", Format(Date2DMY(EntrdStartDate, 3)) + '/' + ConvertStr(Format(Date2DMY(EntrdStartDate, 2), 2), ' ', '0'), Format(Date2DMY(EndDateReq, 3)) + '/' + ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0'));
+        if PeriodicVATSettlementEntry.FindSet() then begin
+            repeat
+                PeriodInputVATYearInputVAT += PeriodicVATSettlementEntry."Prior Period Input VAT" + PeriodicVATSettlementEntry."Prior Year Input VAT" + PeriodicVATSettlementEntry."Advanced Amount";
+                PeriodOutputVATYearOutputVATAdvAmt += PeriodicVATSettlementEntry."Prior Period Output VAT" + PeriodicVATSettlementEntry."Prior Year Output VAT";
+            until PeriodicVATSettlementEntry.Next() = 0;
+            TotalSaleRounded := FiscalRoundAmount(PeriodOutputVATYearOutputVATAdvAmt + TotalSaleAmount);
+            TotalPurchRounded := FiscalRoundAmount(PeriodInputVATYearInputVAT - TotalPurchaseAmount);
+        end;
+    end;
+
+    local procedure InitializeValuesFromPriorPeriodEntry(ActivityCodeParam: Code[6])
+    var
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+        TempInputVAT, TempOutputVAT : Decimal;
+    begin
+        PeriodicVATSettlementEntry.SetRange("VAT Period", Format(Date2DMY(EntrdStartDate, 3)) + '/' + ConvertStr(Format(Date2DMY(EntrdStartDate, 2), 2), ' ', '0'), Format(Date2DMY(EndDateReq, 3)) + '/' + ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0'));
+        PeriodicVATSettlementEntry.SetRange("Activity Code", ActivityCodeParam);
+        if PeriodicVATSettlementEntry.FindSet() then begin
+            repeat
+                TempInputVAT += PeriodicVATSettlementEntry."Prior Period Input VAT" + PeriodicVATSettlementEntry."Prior Year Input VAT" + PeriodicVATSettlementEntry."Advanced Amount";
+                PeriodInputVATYearInputVAT += PeriodicVATSettlementEntry."Prior Period Input VAT" + PeriodicVATSettlementEntry."Prior Year Input VAT" + PeriodicVATSettlementEntry."Advanced Amount";
+                TempOutputVAT += PeriodicVATSettlementEntry."Prior Period Output VAT" + PeriodicVATSettlementEntry."Prior Year Output VAT";
+                PeriodOutputVATYearOutputVATAdvAmt += PeriodicVATSettlementEntry."Prior Period Output VAT" + PeriodicVATSettlementEntry."Prior Year Output VAT";
+            until PeriodicVATSettlementEntry.Next() = 0;
+            TotalPurchRounded += FiscalRoundAmount(PeriodInputVATYearInputVAT);
+            SafeSet(TotalPurchRoundedPerActivity, ActivityCodeParam, FiscalRoundAmount(TempInputVAT));
+            TotalSaleRounded += FiscalRoundAmount(PeriodOutputVATYearOutputVATAdvAmt);
+            SafeSet(TotalSaleRoundedPerActivity, ActivityCodeParam, FiscalRoundAmount(TempOutputVAT));
+        end;
+    end;
+
+    procedure InitializeRequest2(NewUseAmtsInAddCurr: Boolean)
+    begin
+        UseAmtsInAddCurr := NewUseAmtsInAddCurr;
+    end;
+
+    local procedure GetCurrency(): Code[10]
+    begin
+        if UseAmtsInAddCurr then
+            exit(GLSetup."Additional Reporting Currency");
+
+        exit('');
+    end;
+
+    procedure SetInitialized(NewInitialized: Boolean)
+    begin
+        Initialized := NewInitialized;
+    end;
+
+    local procedure CopyAmounts(var GenJournalLine: Record "Gen. Journal Line"; VATEntry: Record "VAT Entry")
+    begin
+        GenJournalLine.Amount := -VATEntry.Amount;
+        GenJournalLine."VAT Amount" := -VATEntry.Amount;
+        GenJournalLine."VAT Base Amount" := -VATEntry.Base;
+        GenJournalLine."Source Currency Code" := GLSetup."Additional Reporting Currency";
+        GenJournalLine."Source Currency Amount" := -VATEntry."Additional-Currency Amount";
+        GenJournalLine."Source Curr. VAT Amount" := -VATEntry."Additional-Currency Amount";
+        GenJournalLine."Source Curr. VAT Base Amount" := -VATEntry."Additional-Currency Base";
+        OnAfterCopyAmounts(GenJournalLine, VATEntry);
+    end;
+
+    local procedure CreateGenJnlLine(var GenJnlLine2: Record "Gen. Journal Line"; AccountNo: Code[20])
+    begin
+        Clear(GenJnlLine2);
+        GenJnlLine2."System-Created Entry" := true;
+        GenJnlLine2."Account Type" := GenJnlLine2."Account Type"::"G/L Account";
+        GenJnlLine2.Description := GenJnlLine.Description;
+        GenJnlLine2."Posting Date" := PostingDate;
+        GenJnlLine2."Document Type" := GenJnlLine2."Document Type"::" ";
+        GenJnlLine2."Document No." := DocNo;
+        GenJnlLine2."Source Code" := SourceCodeSetup."VAT Settlement";
+        GenJnlLine2."VAT Posting" := GenJnlLine2."VAT Posting"::"Manual VAT Entry";
+        GenJnlLine2."Account No." := AccountNo;
+        GenJnlLine2.Amount := VATEntry.Amount;
+        GenJnlLine2."Source Currency Code" := GLSetup."Additional Reporting Currency";
+        GenJnlLine2."Source Currency Amount" := VATEntry."Additional-Currency Amount";
+    end;
+
+    procedure FiscalRoundAmount(AmountToRound: Decimal) Amount: Decimal
+    begin
+        if GLSetup."Settlement Round. Factor" <> 0 then
+            Amount := Round(AmountToRound, GLSetup."Settlement Round. Factor")
+        else
+            Error(Text1130008, GLSetup.FieldCaption("Settlement Round. Factor"), GLSetup.TableCaption());
+    end;
+
+    procedure CalculateEndDate()
+    begin
+        case GLSetup."VAT Settlement Period" of
+            GLSetup."VAT Settlement Period"::Month:
+                Data."Period Type" := Data."Period Type"::Month;
+            GLSetup."VAT Settlement Period"::Quarter:
+                Data."Period Type" := Data."Period Type"::Quarter;
+        end;
+
+        if Data.Get(Data."Period Type", EntrdStartDate) then
+            if Data.Find('>') then begin
+                EndDateReq := Data."Period Start" - 1;
+                PostingDate := EndDateReq;
+            end;
+    end;
+
+    procedure GetGLSetup()
+    begin
+        if not GLSetupGet then begin
+            GLSetup.Get();
+            GLSetupGet := true;
+        end;
+    end;
+
+
+    local procedure UpdatePeriodicSettlementVATEntryActivityCode()
+    var
+        ActivityCodeLocal: Record "Activity Code";
+        PriorPeriodVATEntry: Record "Periodic VAT Settlement Entry";
+        PriorPeriodVATEntry2: Record "Periodic VAT Settlement Entry";
+        DateFormula: DateFormula;
+        IsNewYear: Boolean;
+        NewVATAmount: Decimal;
+    begin
+        if VATSetup."Per Activity Code Settl. Entry" then begin
+            if ActivityCodeLocal.Findset() then
+                repeat
+                    UpdatePeriodicSettlementVATEntry(ActivityCodeLocal.Code);
+                until ActivityCodeLocal.Next() = 0;
+            exit;
+        end;
+
+        if PriorPeriodVATEntry.Get(Format(Date2DMY(EndDateReq, 3)) + '/' +
+          ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0'))
+        then begin
+            NewVATAmount := TotalPurchRounded - TotalSaleRounded;
+
+            if (NewVATAmount = 0) and (VATAmount = 0) then begin
+                if CreditNextPeriod <> 0 then
+                    PriorPeriodVATEntry."VAT Settlement" := CreditNextPeriod
+                else
+                    PriorPeriodVATEntry."VAT Settlement" := DebitNextPeriod;
+            end else
+                PriorPeriodVATEntry."VAT Settlement" := NewVATAmount;
+
+            PriorPeriodVATEntry."VAT Period Closed" := true;
+            PriorPeriodVATEntry.Modify();
+        end else begin
+            PriorPeriodVATEntry."VAT Period" := Format(Date2DMY(EndDateReq, 3)) + '/' +
+              ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0');
+            PriorPeriodVATEntry."VAT Settlement" := NewVATAmount;
+            PriorPeriodVATEntry."VAT Period Closed" := true;
+            PriorPeriodVATEntry.Insert(true);
+        end;
+
+        // Post Rounding Amount to G/L Gains or Losses Account
+        case GLSetup."VAT Settlement Period" of
+            GLSetup."VAT Settlement Period"::Month:
+                Evaluate(DateFormula, '<1D>');
+            GLSetup."VAT Settlement Period"::Quarter:
+                Evaluate(DateFormula, '<CQ+1Q>');
+        end;
+
+        PriorPeriodVATEntry2.Init();
+        PriorPeriodVATEntry2."VAT Period" :=
+          Format(Date2DMY(CalcDate(DateFormula, EndDateReq), 3)) + '/' +
+          ConvertStr(Format(Date2DMY(CalcDate(DateFormula, EndDateReq), 2), 2), ' ', '0');
+        PriorPeriodVATEntry2.Insert();
+
+        IsNewYear := Date2DMY(CalcDate(DateFormula, EndDateReq), 3) <> Date2DMY(EndDateReq, 3);
+        if (TotalSaleAmount = 0) and (TotalPurchaseAmount = 0) then
+            if (PriorPeriodVATEntry."Prior Period Input VAT" <> 0) or (PriorPeriodVATEntry."Prior Year Input VAT" <> 0) then
+                CreditNextPeriod := PriorPeriodVATEntry."Prior Period Input VAT" + PriorPeriodVATEntry."Prior Year Input VAT"
+            else
+                DebitNextPeriod := PriorPeriodVATEntry."Prior Period Output VAT" + PriorPeriodVATEntry."Prior Year Output VAT";
+
+        if CreditNextPeriod <> 0 then
+            if IsNewYear then
+                PriorPeriodVATEntry2."Prior Year Input VAT" := CreditNextPeriod
+            else
+                PriorPeriodVATEntry2."Prior Period Input VAT" := CreditNextPeriod
+        else
+            if DebitNextPeriod <> 0 then
+                if IsNewYear then
+                    PriorPeriodVATEntry2."Prior Year Output VAT" := Abs(DebitNextPeriod)
+                else
+                    PriorPeriodVATEntry2."Prior Period Output VAT" := Abs(DebitNextPeriod);
+
+        PriorPeriodVATEntry2.Modify(true);
+        GLSetup."Last Settlement Date" := EndDateReq;
+        GLSetup.Modify();
+    end;
+
+    local procedure UpdatePeriodicSettlementVATEntry(ActivityCode: Code[6])
+    var
+        PeriodicVATSettlementEntryPrior: Record "Periodic VAT Settlement Entry";
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+        DateFormula: DateFormula;
+        IsNewYear: Boolean;
+        NewVATAmount: Decimal;
+        CreditNextPeriod: Decimal;
+        DebitNextPeriod: Decimal;
+    begin
+        SafeSet(TotalSaleRoundedPerActivity, ActivityCode, FiscalRoundAmount(GetTotalOrZero(TotalSaleRoundedPerActivity, ActivityCode) + GetTotalOrZero(TotalSaleAmountPerActivity, ActivityCode)));
+        SafeSet(TotalPurchRoundedPerActivity, ActivityCode, FiscalRoundAmount(GetTotalOrZero(TotalPurchRoundedPerActivity, ActivityCode) + GetTotalOrZero(TotalPurchaseAmountPerActivity, ActivityCode)));
+
+        NewVATAmount := GetTotalOrZero(TotalPurchRoundedPerActivity, ActivityCode) - GetTotalOrZero(TotalSaleRoundedPerActivity, ActivityCode);
+        if NewVATAmount > 0 then
+            CreditNextPeriod := NewVATAmount
+        else
+            // VAT Settlement
+            if -NewVATAmount <= GLSetup."Minimum VAT Payable" then
+                DebitNextPeriod := NewVATAmount;
+
+        if PeriodicVATSettlementEntryPrior.Get(Format(Date2DMY(EndDateReq, 3)) + '/' + ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0'), ActivityCode)
+        then begin
+            if (NewVATAmount = 0) and (VATAmount = 0) then begin
+                if CreditNextPeriod <> 0 then
+                    PeriodicVATSettlementEntryPrior."VAT Settlement" := CreditNextPeriod
+                else
+                    PeriodicVATSettlementEntryPrior."VAT Settlement" := DebitNextPeriod;
+            end else
+                PeriodicVATSettlementEntryPrior."VAT Settlement" := NewVATAmount;
+
+            PeriodicVATSettlementEntryPrior."VAT Period Closed" := true;
+            PeriodicVATSettlementEntryPrior.Modify();
+        end else begin
+            PeriodicVATSettlementEntryPrior."VAT Period" := Format(Date2DMY(EndDateReq, 3)) + '/' +
+              ConvertStr(Format(Date2DMY(EndDateReq, 2), 2), ' ', '0');
+            PeriodicVATSettlementEntryPrior."Activity Code" := ActivityCode;
+            PeriodicVATSettlementEntryPrior."VAT Settlement" := NewVATAmount;
+            PeriodicVATSettlementEntryPrior."VAT Period Closed" := true;
+            PeriodicVATSettlementEntryPrior.Insert(true);
+        end;
+
+        // Post Rounding Amount to G/L Gains or Losses Account
+        case GLSetup."VAT Settlement Period" of
+            GLSetup."VAT Settlement Period"::Month:
+                Evaluate(DateFormula, '<1D>');
+            GLSetup."VAT Settlement Period"::Quarter:
+                Evaluate(DateFormula, '<CQ+1Q>');
+        end;
+
+        PeriodicVATSettlementEntry.Init();
+        PeriodicVATSettlementEntry."VAT Period" := Format(Date2DMY(CalcDate(DateFormula, EndDateReq), 3)) + '/' + ConvertStr(Format(Date2DMY(CalcDate(DateFormula, EndDateReq), 2), 2), ' ', '0');
+        PeriodicVATSettlementEntry."Activity Code" := ActivityCode;
+        PeriodicVATSettlementEntry.Insert();
+
+        IsNewYear := Date2DMY(CalcDate(DateFormula, EndDateReq), 3) <> Date2DMY(EndDateReq, 3);
+        if (GetTotalOrZero(TotalSaleAmountPerActivity, ActivityCode) = 0) and (GetTotalOrZero(TotalPurchaseAmountPerActivity, ActivityCode) = 0) then
+            if (PeriodicVATSettlementEntryPrior."Prior Period Input VAT" <> 0) or (PeriodicVATSettlementEntryPrior."Prior Year Input VAT" <> 0) then
+                CreditNextPeriod := PeriodicVATSettlementEntryPrior."Prior Period Input VAT" + PeriodicVATSettlementEntryPrior."Prior Year Input VAT"
+            else
+                DebitNextPeriod := PeriodicVATSettlementEntryPrior."Prior Period Output VAT" + PeriodicVATSettlementEntryPrior."Prior Year Output VAT";
+
+        if CreditNextPeriod <> 0 then
+            if IsNewYear then
+                PeriodicVATSettlementEntry."Prior Year Input VAT" := CreditNextPeriod
+            else
+                PeriodicVATSettlementEntry."Prior Period Input VAT" := CreditNextPeriod
+        else
+            if DebitNextPeriod <> 0 then
+                if IsNewYear then
+                    PeriodicVATSettlementEntry."Prior Year Output VAT" := Abs(DebitNextPeriod)
+                else
+                    PeriodicVATSettlementEntry."Prior Period Output VAT" := Abs(DebitNextPeriod);
+
+        PeriodicVATSettlementEntry.Modify(true);
+        GLSetup."Last Settlement Date" := EndDateReq;
+        GLSetup.Modify();
+    end;
+
+    local procedure SetVatPostingSetupToGenJnlLine(var GenJnlLine: Record "Gen. Journal Line"; VATPostingSetup: Record "VAT Posting Setup")
+    begin
+        GenJnlLine."Gen. Posting Type" := GenJnlLine."Gen. Posting Type"::Settlement;
+        GenJnlLine."VAT Bus. Posting Group" := VATPostingSetup."VAT Bus. Posting Group";
+        GenJnlLine."VAT Prod. Posting Group" := VATPostingSetup."VAT Prod. Posting Group";
+        GenJnlLine."VAT Calculation Type" := VATPostingSetup."VAT Calculation Type";
+    end;
+
+    local procedure CloseVATEntriesOnPostSettlement(var VATEntry: Record "VAT Entry"; NextVATEntryNo: Integer)
+    var
+        IsHandled: Boolean;
+    begin
+        IsHandled := false;
+        OnBeforeCloseVATEntriesOnPostSettlement(VATEntry, NextVATEntryNo, IsHandled);
+        if IsHandled then
+            exit;
+
+        VATEntry.ModifyAll("Closed by Entry No.", NextVATEntryNo);
+        VATEntry.ModifyAll(Closed, true);
+
+        VATEntry.SetRange(Closed, true);
+        VATEntry.ModifyAll("VAT Period", VATPeriod);
+        VATEntry.SetRange(Closed, false);
+    end;
+
+    local procedure GetSettlementVATEntryNo(PostVATSettlement: Boolean; IsPostingAllowed: Boolean): Integer
+    var
+        NextAvailableVATEntryNo: Integer;
+        LastPostedVATEntryNo: Integer;
+    begin
+        if not IsPostingAllowed then
+            exit(0);
+
+        if PostVATSettlement then begin
+            NextAvailableVATEntryNo := GenJnlPostLine.GetNextVATEntryNo();
+            if NextAvailableVATEntryNo <> 0 then
+                LastPostedVATEntryNo := NextAvailableVATEntryNo - 1;
+            exit(LastPostedVATEntryNo);
+        end;
+
+        RestoreNextVATEntryNo();
+        NextVATEntryNo += 1;
+        SaveNextVATEntryNo();
+        exit(NextVATEntryNo);
+    end;
+
+    local procedure GetVATPeriodTextFromDate(InputDate: Date): Text[10]
+    begin
+        exit(Format(Date2DMY(InputDate, 3)) + '/' + ConvertStr(Format(Date2DMY(InputDate, 2), 2), ' ', '0'));
+    end;
+
+    local procedure SaveNextVATEntryNo()
+    begin
+        LastVATEntryNo := NextVATEntryNo;
+    end;
+
+    local procedure RestoreNextVATEntryNo()
+    begin
+        if LastVATEntryNo <> 0 then
+            NextVATEntryNo := LastVATEntryNo;
+    end;
+
+    local procedure UpdateVATPeriodOnSettlementVATEntry(SettlementVATEntryNo: Integer)
+    var
+        SttlmtVATEntry: Record "VAT Entry";
+    begin
+        if SttlmtVATEntry.Get(SettlementVATEntryNo) then begin
+            SttlmtVATEntry.Validate("VAT Period", VATPeriod);
+            SttlmtVATEntry.Modify(true);
+        end;
+    end;
+
+    local procedure ValidatePreviousEntrySplit()
+    var
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+    // PeriodicVATSettlement: Codeunit "Periodic VAT Settlement";  //PRV - old line
+    begin
+        if PeriodicVATSettlementEntry.Get(GetVATPeriodTextFromDate(EndDateReq), '') then
+            // if not PeriodicVATSettlement.ValidateSplit(GetVATPeriodTextFromDate(EndDateReq)) then  //PRV - old line
+            if not ValidateSplit(GetVATPeriodTextFromDate(EndDateReq)) then  //PRV - new line
+                Error(SplitValidationErr);
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterPreReport(var VATEntry: Record "VAT Entry")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterPostReport()
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeCheckPrintVATEntries(var VATEntry: Record "VAT Entry")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforePreReport(var VATPostingSetup: Record "VAT Posting Setup"; PostSettlement: Boolean; GLAccountSettle: Record "G/L Account"; var DocNo: Code[20])
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnBeforeCloseVATEntriesOnPostSettlement(var VATEntry: Record "VAT Entry"; NextVATEntryNo: Integer; var IsHandled: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(true, false)]
+    local procedure OnClosingGLAndVATEntryOnAfterGetRecordOnAfterSetVATEntryFilters(VATPostingSetup: Record "VAT Posting Setup"; var VATEntry: Record "VAT Entry"; var VATEntry2: Record "VAT Entry")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnClosingGLAndVATEntryOnAfterGetRecordOnNormalVATOnAfterVATEntrySetFilter(VATPostingSetup: Record "VAT Posting Setup"; VATType: enum "General Posting Type"; var VATEntry: Record "VAT Entry"; FindFirstEntry: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnClosingGLAndVATEntryOnAfterGetRecordOnSalesTaxOnAfterVATEntrySetFilter(VATPostingSetup: Record "VAT Posting Setup"; VATType: enum "General Posting Type"; var VATEntry: Record "VAT Entry"; FindFirstEntry: Boolean)
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterCopyAmounts(var GenJournalLine: Record "Gen. Journal Line"; var VATEntry: Record "VAT Entry")
+    begin
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnVATPostingSetupOnAfterOnPostDataItem(GenJnlLine: Record "Gen. Journal Line"; PostSettlement: Boolean)
+    begin
+    end;
+
+
+
+
+    // codeunit 12195 "Periodic VAT Settlement"  //PRV - new line
+    procedure CheckIfSplitIsNeeded(Period: Code[10]): Boolean
+    var
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+    begin
+        PeriodicVATSettlementEntry.SetRange("VAT Period", Period);
+        PeriodicVATSettlementEntry.SetRange("Activity Code", '');
+        exit(not PeriodicVATSettlementEntry.IsEmpty());
+
+    end;
+
+    procedure CreateSeparateEntries(Period: Code[10])
+    var
+        ActivityCode: Record "Activity Code";
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+    begin
+        if ActivityCode.Findset() then
+            repeat
+                PeriodicVATSettlementEntry.Init();
+                PeriodicVATSettlementEntry."VAT Period" := Period;
+                PeriodicVATSettlementEntry."Activity Code" := ActivityCode.Code;
+                if PeriodicVATSettlementEntry.Insert() then;
+            until ActivityCode.Next() = 0;
+    end;
+
+    procedure ValidateSplit(VATPeriod: Code[10]) Valid: Boolean
+    var
+        PeriodicVATSettlementEntry: Record "Periodic VAT Settlement Entry";
+        PeriodicVATSettlementEntry2: Record "Periodic VAT Settlement Entry";
+        PriorPeriodOutputVAT, PriorPeriodInputVAT, AddCurrPriorPerInpVAT, AddCurrPriorPerOutVAT, PriorYearInputVAT, PriorYearOutputVAT : Decimal;
+    begin
+        PeriodicVATSettlementEntry.SetRange("VAT Period", VATPeriod);
+        PeriodicVATSettlementEntry.SetRange("Activity Code", '');
+        PeriodicVATSettlementEntry.FindFirst();
+        PeriodicVATSettlementEntry2.SetRange("VAT Period", VATPeriod);
+        PeriodicVATSettlementEntry2.SetFilter("Activity Code", '<>%1', '');
+        if PeriodicVATSettlementEntry2.FindSet() then
+            repeat
+                PriorPeriodOutputVAT += PeriodicVATSettlementEntry2."Prior Period Output VAT";
+                PriorPeriodInputVAT += PeriodicVATSettlementEntry2."Prior Period Input VAT";
+                AddCurrPriorPerInpVAT += PeriodicVATSettlementEntry2."Add Curr. Prior Per. Inp. VAT";
+                AddCurrPriorPerOutVAT += PeriodicVATSettlementEntry2."Add Curr. Prior Per. Out VAT";
+                PriorYearInputVAT += PeriodicVATSettlementEntry2."Prior Year Input VAT";
+                PriorYearOutputVAT += PeriodicVATSettlementEntry2."Prior Year Output VAT";
+            until PeriodicVATSettlementEntry2.Next() = 0;
+        Valid := (PeriodicVATSettlementEntry."Prior Period Input VAT" = PriorPeriodInputVAT) and
+                 (PeriodicVATSettlementEntry."Prior Period Output VAT" = PriorPeriodOutputVAT) and
+                 (PeriodicVATSettlementEntry."Add Curr. Prior Per. Inp. VAT" = AddCurrPriorPerInpVAT) and
+                 (PeriodicVATSettlementEntry."Add Curr. Prior Per. Out VAT" = AddCurrPriorPerOutVAT) and
+                 (PeriodicVATSettlementEntry."Prior Year Input VAT" = PriorYearInputVAT) and
+                 (PeriodicVATSettlementEntry."Prior Year Output VAT" = PriorYearOutputVAT);
+    end;
+
+
+}
+
+

@@ -1,0 +1,40 @@
+{
+    "name": "APP rule set",
+    "rules": [
+        {
+            "id": "AA0218",
+            "action": "None",
+            "justification": "a Tooltip should not be neccessary"
+        },
+        {
+            "id": "AS0051",
+            "action": "None",
+            "justification": "for Customer Extensions the manifest property privacyStatement, EULA, help should not be neccessary."
+        },
+        {
+            "id": "AS0052",
+            "action": "None",
+            "justification": "for Customer Extensions the manifest property url should not be neccessary."
+        },
+        {
+            "id": "AS0084",
+            "action": "None",
+            "justification": "The ID range '[50000..50199]' is valid for Customer Extensions"
+        },
+        {
+            "id": "AS0092",
+            "action": "None",
+            "justification": "Monitoring and Analyzing Telemetry is not used."
+        },
+        {
+            "id": "AS0053",
+            "action": "None",
+            "justification": "Multi-tenant SaaS environment not needed."
+        },
+        {
+            "id": "PTE0005",
+            "action": "None",
+            "justification": "Multi-tenant SaaS environment not needed."
+        }
+    ]
+}

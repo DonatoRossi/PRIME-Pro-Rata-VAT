@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="en-US" original="PRIME Pro-Rata VAT">
+    <body>
+      <group id="body">
+        <trans-unit id="Page 1575834341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cost List For Pro-Rata VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1575834341 - Control 1918901646 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Importo Pro-Rata</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Control Pro-Rata Amount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1575834341 - Control 4069863265 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>% Pro-Rata</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Control PRV Pro-Rata % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1575834341 - Action 1405007275 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the number and type of entries that have the same document number or posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Action &amp;Navigate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1575834341 - Action 1405007275 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Find entries...</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Action &amp;Navigate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1575834341 - Action 1329420776 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer the lines from the current window to the general journal.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Action Trasferisci a registrazioni COGE - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1575834341 - Action 1329420776 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Transfer to General Journal</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page PRV Cost List For Pro-Rata VAT - Action Trasferisci a registrazioni COGE - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calculate and Post VAT Settlement (Pro-Rata)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Property 3863440606" size-unit="char" translate="yes" xml:space="preserve">
+          <source>settle vat value added tax,report vat value added tax</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Property AdditionalSearchTerms</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3576424497" size-unit="char" translate="yes" xml:space="preserve">
+          <source>All amounts are in %1.</source>
+          <note from="Developer" annotates="general" priority="2">%1 = Currency Code</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType AllAmountsAreInTxt</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2571830216" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Calc. and Post VAT Settlement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType CalcandPostVATSettlementCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3418665325" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next Period Input VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType CreditNextPeriodCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1173917108" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Next Period Output VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType DebitNextPeriodCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2833281111" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType DocNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1123541598" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Nondeductible Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType FinalUndVATAmntCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1270507752" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Settlement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType GenJnlLineVATBaseAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2243381876" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Settlement Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType GLAccSettleNoCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1755079033" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Previous VAT Plafond Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType PrevPlafondAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 753563306" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prior Period Input VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType PriorPeriodVATEntryPriorPeriodInputVATPriorPeriodVATEntryPriorYearInputVATCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3388474860" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Prior Period Output VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType PriorPeriodVATEntryPriorPeriodOutputVATPriorPeriodVATEntryPriorYearOutputVATPriorPeriodVATEntryAdvancedAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2476575251" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Remaining VAT Plafond Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType RemainingVATPlafondAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2972399840" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Before using Per Activity Code Settlement Entry, you must split the previous entries amounts per activity code manually using "Split Periodic Entry" action on Periodic VAT Settlemnt List page.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType SplitValidationErr</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1020508692" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Test Report (Not Posted)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TestReportnotpostedCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2476940767" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter the posting date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text000</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3114637384" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter the document no.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text001</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3752334001" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Enter the settlement account.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text002</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 95063322" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to calculate and post the VAT Settlement?</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text003</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 732759939" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Settlement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text004</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1370456556" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Period: %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text005</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2645849790" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Purchase VAT settlement: #1######## #2########</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text007</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3283546407" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sales VAT settlement  : #1######## #2########</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text008</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 829782946" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please enter the ending date.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130000</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 192086329" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Start Date must be greaten than the last Settlement Date :%1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130001</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3849357008" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date cannot be less than the Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130002</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3211660391" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please enter the G/L Gains  Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130003</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3380569414" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Please enter the G/L Losses Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130004</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2742872797" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date cannot be less than Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130005</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2105176180" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT Settlement Rounding +/-</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130006</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1467479563" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The last settlement date is %1</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130007</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 23177306" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The %1 in %2 must not be Blank</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130008</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3264758643" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Input VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TotalPurchaseAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 353395043" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Input VAT (Rounded)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TotalPurchRoundedCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3572792179" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TotalSaleAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 385458656" size-unit="char" translate="yes" xml:space="preserve">
+          <source>VAT</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TotalSaleAmountTotalPurchaseAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2834089778" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Output VAT (Rounded)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TotalSaleRoundedCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3793406291" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Used VAT Plafond Amount</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType UsedPlafondAmountCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 4113357336" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType VATAmountAddCurrCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2364548648" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Doc Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType VATEntryDocumentTypeCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2727464465" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType VATEntryPostingDateCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2516139496" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Total VAT to pay (if positive)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType VATToPayCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - RequestPage 2516438534 - Property 1064389655" size-unit="char" translate="yes" xml:space="preserve">
+          <source>About Calc. and Post VAT Settlement</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - RequestPage RequestOptionsPage - Property AboutTitle</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - RequestPage 2516438534 - Property 247559172" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The **Calculate and Post Tax Settlement** report calculates VAT based on posted entries and generates a journal to record the VAT settlement. Use it for automating VAT processing at the end of a filing period (typically monthly or quarterly) by posting the net VAT due or refundable, helping streamline tax reporting and compliance.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - RequestPage RequestOptionsPage - Property AboutText</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 2346885236 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control Options - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3303862007 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the reported amounts are shown in the additional reporting currency.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control AmtsinAddReportingCurr - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3303862007 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show Amounts in Add. Reporting Currency</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control AmtsinAddReportingCurr - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 743551297 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the country/region to filter the VAT entries.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control Country/Region Filter - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 743551297 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Country/Region Filter</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control Country/Region Filter - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3117834186 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a document number. This field must be filled in.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control DocumentNo - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3117834186 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control DocumentNo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3592094765 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the last date in the period from which VAT entries are processed in the batch job. </source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control EndingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3592094765 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ending Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control EndingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 2515322620 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general ledger account for gains.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control GLGainsAccount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 2515322620 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Gains Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control GLGainsAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3081920033 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general ledger account for losses.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control GLLossesAccount - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3081920033 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>G/L Losses Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control GLLossesAccount - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 2282416948 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the program to post the transfer to the VAT settlement account automatically. If you do not choose to post the transfer, the batch job only prints a test report, and Test Report (not Posted) appears on the report.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control Post - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 2282416948 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Post</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control Post - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3633979340 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the date on which the transfer to the VAT account is posted. This field must be filled in.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control PostingDt - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 3633979340 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Posting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control PostingDt - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 900177904 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the number of the VAT settlement account. Select the field to see the chart of account. This field must be filled in.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control SettlementAcc - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 900177904 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Settlement Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control SettlementAcc - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 587448222 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if you want the report that is printed during the batch job to contain the individual VAT entries. If you do not choose to print the VAT entries, the settlement amount is shown only for each VAT posting group.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control ShowVATEntries - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 587448222 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Show VAT Entries</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control ShowVATEntries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 543275552 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the first date in the period from which VAT entries are processed in the batch job.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control StartingDate - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - Control 543275552 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Starting Date</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - Control StartingDate - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3060872384 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Trans. Pro-Rata to Gen. Jnl.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Trans. ProRata to Gen.Jnl. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3060872384 - Control 3024247248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Options</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Trans. ProRata to Gen.Jnl. - Control Opzioni - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3060872384 - Control 3954649226 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general journal batch that the entries are placed in.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Trans. ProRata to Gen.Jnl. - Control GenJnlLine.Journal Batch Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3060872384 - Control 3954649226 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal Batch</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Trans. ProRata to Gen.Jnl. - Control GenJnlLine.Journal Batch Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 3060872384 - Control 3224842750 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the general journal template that the entries are placed in.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Trans. ProRata to Gen.Jnl. - Control GenJnlLine.Journal Template Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 3060872384 - Control 3224842750 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Gen. Journal Template</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Trans. ProRata to Gen.Jnl. - Control GenJnlLine.Journal Template Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 1079454288 - Field 4261460288 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 2825951060">
+          <source>Deductible %</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PRV G/L Entry - Field PRV Deductible % - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2859055100 - Field 2110816505 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>% Pro-Rata</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PRV General Ledger Setup - Field PRV % Pro-Rata - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="TableExtension 2859055100 - Field 632185781 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve" al-object-target="Table 4050813720">
+          <source>Pro-Rata Account</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">TableExtension PRV General Ledger Setup - Field PRV Pro-Rata Account - Property Caption</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
