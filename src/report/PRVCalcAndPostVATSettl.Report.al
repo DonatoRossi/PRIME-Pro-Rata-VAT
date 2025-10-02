@@ -4,7 +4,6 @@
 #pragma warning disable AA0245
 #pragma warning disable AA0244
 #pragma warning disable AA0198
-#pragma warning disable AA0228
 
 report 78001 "PRV Calc. and Post VAT Settl."
 {
@@ -95,7 +94,7 @@ report 78001 "PRV Calc. and Post VAT Settl."
                 AutoFormatType = 1;
             }
             // column(VATToPay; VATToPay)  //PRV - old line
-            column(VATToPay; VATToPay - PriorPeriodVATEntry."Prior Period Input VAT" - PriorPeriodVATEntry."Prior Year Input VAT")  //PRV - new line
+            column(VATToPay; VATToPay - PriorPeriodVATEntry_PriorPeriodInputVAT - PriorPeriodVATEntry_PriorYearInputVAT)  //PRV - new line
             {
                 AutoFormatExpression = GetCurrency();
                 AutoFormatType = 1;
@@ -768,6 +767,8 @@ report 78001 "PRV Calc. and Post VAT Settl."
                 end else
                     if PostSettlement then
                         UpdatePeriodicSettlementVATEntryActivityCode();
+
+                OnVATPostingSetupOnAfterOnPostDataItem(GenJnlLine, PostSettlement);
             end;
 
             trigger OnPreDataItem()
@@ -908,8 +909,8 @@ report 78001 "PRV Calc. and Post VAT Settl."
                     CreditoP := IvaCre - IvaDeb;
                     if DebitoP < 0 then DebitoP := 0;
                     if CreditoP < 0 then CreditoP := 0;
-                    DebitoP1 := -CreditoP + DebitoP - PriorPeriodVATEntry."Prior Period Input VAT";
-                    DebitoP1 += PriorPeriodVATEntry."Prior Period Output VAT";
+                    DebitoP1 := -CreditoP + DebitoP - PriorPeriodVATEntry_PriorPeriodInputVAT;
+                    DebitoP1 += PriorPeriodVATEntry_PriorPeriodOutputVAT;
                     if DebitoP1 < 0 then begin
                         CreditoP1 := -DebitoP1;
                         DebitoP1 := 0;
@@ -1013,7 +1014,7 @@ report 78001 "PRV Calc. and Post VAT Settl."
             column(DebitoP; DebitoP)
             {
             }
-            column(PriorPeriodOutputVAT; -PriorPeriodVATEntry."Prior Period Output VAT")
+            column(PriorPeriodOutputVAT; -PriorPeriodVATEntry_PriorPeriodOutputVAT)
             {
             }
             column(DebitoP1; DebitoP1)
@@ -1034,7 +1035,7 @@ report 78001 "PRV Calc. and Post VAT Settl."
             column(CreditoP; CreditoP)
             {
             }
-            column(PriorPeriodInputVAT; PriorPeriodVATEntry."Prior Period Input VAT")
+            column(PriorPeriodInputVAT; PriorPeriodVATEntry_PriorPeriodInputVAT)
             {
             }
             column(CreditoP1; CreditoP1)
@@ -1064,8 +1065,8 @@ report 78001 "PRV Calc. and Post VAT Settl."
                     CreditoP := IvaCre - IvaDeb;
                     if DebitoP < 0 then DebitoP := 0;
                     if CreditoP < 0 then CreditoP := 0;
-                    DebitoP1 := -CreditoP + DebitoP - PriorPeriodVATEntry."Prior Period Input VAT";
-                    DebitoP1 += PriorPeriodVATEntry."Prior Period Output VAT";
+                    DebitoP1 := -CreditoP + DebitoP - PriorPeriodVATEntry_PriorPeriodInputVAT;
+                    DebitoP1 += PriorPeriodVATEntry_PriorPeriodOutputVAT;
                     if DebitoP1 < 0 then begin
                         CreditoP1 := -DebitoP1;
                         DebitoP1 := 0;
@@ -1418,18 +1419,18 @@ report 78001 "PRV Calc. and Post VAT Settl."
         Text1130004: Label 'Please enter the G/L Losses Account';
         Text1130005: Label 'Ending Date cannot be less than Starting Date';
         Text1130006: Label 'VAT Settlement Rounding +/-';
-        Text1130007: Label 'The last settlement date is %1';
+        // Text1130007: Label 'The last settlement date is %1';
         Text1130008: Label 'The %1 in %2 must not be Blank';
         SplitValidationErr: Label 'Before using Per Activity Code Settlement Entry, you must split the previous entries amounts per activity code manually using "Split Periodic Entry" action on Periodic VAT Settlemnt List page.';
         //PRV - start
-        ContiCG: Record "G/L Account";
+        // ContiCG: Record "G/L Account";
         ImportoProRata: Decimal;
         ContoPro: Code[20];
         PercPro: Decimal;
         TotAc: Decimal;
-        TotaleImpAcquisti: Decimal;
+        // TotaleImpAcquisti: Decimal;
         NuovoIvaNA: Decimal;
-        TotaleImpVendite: Decimal;
+        // TotaleImpVendite: Decimal;
         TImpA: Decimal;
         TivaA: Decimal;
         TimpV: Decimal;
@@ -1438,8 +1439,8 @@ report 78001 "PRV Calc. and Post VAT Settl."
         ImponibileV: array[40] of Decimal;
         ImportoA: array[40] of Decimal;
         ImportoV: array[40] of Decimal;
-        ImponibileInd: array[40] of Decimal;
-        ImportoInd: array[40] of Decimal;
+        // ImponibileInd: array[40] of Decimal;
+        // ImportoInd: array[40] of Decimal;
         AliquotaDes: array[40] of Text[50];
         DetraibilePro: Decimal;
         IvaDeb: Decimal;
@@ -1458,7 +1459,6 @@ report 78001 "PRV Calc. and Post VAT Settl."
         recVatId: Record "VAT Identifier";
         PostSettlementEditable: Boolean;
         txtDetrProRataCaption: Text;
-        "//Total2": Label 'Total2';
         TxtTotal2_Vendite: Label 'Vendite';
         TxtTotal2_DescAliq: Label 'Descrizione Aliquota';
         TxtTotal2_Imp: Label 'Imponibile';
@@ -1477,9 +1477,10 @@ report 78001 "PRV Calc. and Post VAT Settl."
         TxtTotal2_AccontoVersato: Label 'Acconto Versato';
         TxtTotal2_DEBITOCREDITO: Label 'DEBITO/CREDITO';
         blnPrintTotal2: Boolean;
-        Tipo: Option "VAT Settl - Purchase","VAT Settl - Sale","VAT Settl VAT","VAT Settl Rounding ";
         IndetraibileProRataTxt: Label 'Indetraibile Pro-Rata %1', Locked = true;
-
+        PriorPeriodVATEntry_PriorPeriodInputVAT: Decimal;
+        PriorPeriodVATEntry_PriorYearInputVAT: Decimal;
+        PriorPeriodVATEntry_PriorPeriodOutputVAT: Decimal;
 
     protected var
         GLAccSettle: Record "G/L Account";
@@ -1549,6 +1550,10 @@ report 78001 "PRV Calc. and Post VAT Settl."
             repeat
                 PeriodInputVATYearInputVAT += PeriodicVATSettlementEntry."Prior Period Input VAT" + PeriodicVATSettlementEntry."Prior Year Input VAT" + PeriodicVATSettlementEntry."Advanced Amount";
                 PeriodOutputVATYearOutputVATAdvAmt += PeriodicVATSettlementEntry."Prior Period Output VAT" + PeriodicVATSettlementEntry."Prior Year Output VAT";
+
+                PriorPeriodVATEntry_PriorPeriodInputVAT := PeriodicVATSettlementEntry."Prior Period Input VAT";  //PRV - new line
+                PriorPeriodVATEntry_PriorYearInputVAT := PeriodicVATSettlementEntry."Prior Year Input VAT";  //PRV - new line
+                PriorPeriodVATEntry_PriorPeriodOutputVAT := PeriodicVATSettlementEntry."Prior Period Output VAT";  //PRV - new line
             until PeriodicVATSettlementEntry.Next() = 0;
             TotalSaleRounded := FiscalRoundAmount(PeriodOutputVATYearOutputVATAdvAmt + TotalSaleAmount);
             TotalPurchRounded := FiscalRoundAmount(PeriodInputVATYearInputVAT - TotalPurchaseAmount);
@@ -1568,6 +1573,10 @@ report 78001 "PRV Calc. and Post VAT Settl."
                 PeriodInputVATYearInputVAT += PeriodicVATSettlementEntry."Prior Period Input VAT" + PeriodicVATSettlementEntry."Prior Year Input VAT" + PeriodicVATSettlementEntry."Advanced Amount";
                 TempOutputVAT += PeriodicVATSettlementEntry."Prior Period Output VAT" + PeriodicVATSettlementEntry."Prior Year Output VAT";
                 PeriodOutputVATYearOutputVATAdvAmt += PeriodicVATSettlementEntry."Prior Period Output VAT" + PeriodicVATSettlementEntry."Prior Year Output VAT";
+
+                PriorPeriodVATEntry_PriorPeriodInputVAT := PeriodicVATSettlementEntry."Prior Period Input VAT";  //PRV - new line
+                PriorPeriodVATEntry_PriorYearInputVAT := PeriodicVATSettlementEntry."Prior Year Input VAT";  //PRV - new line
+                PriorPeriodVATEntry_PriorPeriodOutputVAT := PeriodicVATSettlementEntry."Prior Period Output VAT";  //PRV - new line
             until PeriodicVATSettlementEntry.Next() = 0;
             TotalPurchRounded += FiscalRoundAmount(PeriodInputVATYearInputVAT);
             SafeSet(TotalPurchRoundedPerActivity, ActivityCodeParam, FiscalRoundAmount(TempInputVAT));

@@ -231,12 +231,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130006</note>
         </trans-unit>
-        <trans-unit id="Report 3895272373 - NamedType 1467479563" size-unit="char" translate="yes" xml:space="preserve">
-          <source>The last settlement date is %1</source>
-          <target>La data dell'ultima liquidazione è %1</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType Text1130007</note>
-        </trans-unit>
         <trans-unit id="Report 3895272373 - NamedType 23177306" size-unit="char" translate="yes" xml:space="preserve">
           <source>The %1 in %2 must not be Blank</source>
           <target>Il %1 in %2 non può essere vuoto</target>
@@ -272,6 +266,108 @@
           <target>IVA a debito (arrotondamento)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TotalSaleRoundedCaptionLbl</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 4080301160" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acconto Versato</source>
+          <target>Acconto Versato</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_AccontoVersato</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3874702778" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Acquisti</source>
+          <target>Acquisti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_Acquisti</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2257890403" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Credito Iva Compensabile portato in detrazione</source>
+          <target>Credito Iva Compensabile portato in detrazione</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_CredIva</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1841340601" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Crediti Speciali d'Imposta detratti</source>
+          <target>Crediti Speciali d'Imposta detratti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_CredSpecImposta</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 4194126489" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debito/Credito del periodo</source>
+          <target>Debito/Credito del periodo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_DebCrePer</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3284643559" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debito/Credito del periodo</source>
+          <target>Debito/Credito del periodo</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_DebCrePer2</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2384457125" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debito/Credito del periodo precedente</source>
+          <target>Debito/Credito del periodo precedente</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_DebCrePerPrec</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3657737480" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DEBITO/CREDITO</source>
+          <target>DEBITO/CREDITO</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_DEBITOCREDITO</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1973326165" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Descrizione Aliquota</source>
+          <target>Descrizione Aliquota</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_DescAliq</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2841157669" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Imponibile</source>
+          <target>Imponibile</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_Imp</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1533496901" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Interessi dovuti liquidazioni trimestrali</source>
+          <target>Interessi dovuti liquidazioni trimestrali</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_InteressiLiquid</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 1390246931" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Iva</source>
+          <target>Iva</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_Iva</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 572745252" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Iva non versata periodi precedenti</source>
+          <target>Iva non versata periodi precedenti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_IvaNonVersata</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 3343031656" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Totali</source>
+          <target>Totali</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_Totali</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2325444667" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Totali iva Debito/Credito Arrotondati</source>
+          <target>Totali iva Debito/Credito Arrotondati</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_TotIvaDebCre</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 4156319979" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Variazioni d'Imposta periodi precedenti</source>
+          <target>Variazioni d'Imposta periodi precedenti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_Variazioni</note>
+        </trans-unit>
+        <trans-unit id="Report 3895272373 - NamedType 2633457594" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Vendite</source>
+          <target>Vendite</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report PRV Calc. and Post VAT Settl. - NamedType TxtTotal2_Vendite</note>
         </trans-unit>
         <trans-unit id="Report 3895272373 - NamedType 3793406291" size-unit="char" translate="yes" xml:space="preserve">
           <source>Used VAT Plafond Amount</source>

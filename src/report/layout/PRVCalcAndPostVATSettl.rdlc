@@ -5098,6 +5098,15 @@ End Function
         <Field Name="VATEntryRemainingUnrealizedAmountCaption">
           <DataField>VATEntryRemainingUnrealizedAmountCaption</DataField>
         </Field>
+        <Field Name="txtDetrProRataCaption">
+          <DataField>txtDetrProRataCaption</DataField>
+        </Field>
+        <Field Name="ImportoProRata">
+          <DataField>ImportoProRata</DataField>
+        </Field>
+        <Field Name="ImportoProRataFormat">
+          <DataField>ImportoProRataFormat</DataField>
+        </Field>
         <Field Name="VATBusPostGr1_VATPostingSetup">
           <DataField>VATBusPostGr1_VATPostingSetup</DataField>
         </Field>
@@ -5289,6 +5298,186 @@ End Function
         </Field>
         <Field Name="PrevPlafondAmountCaption">
           <DataField>PrevPlafondAmountCaption</DataField>
+        </Field>
+        <Field Name="TxtTotal2_DescAliq">
+          <DataField>TxtTotal2_DescAliq</DataField>
+        </Field>
+        <Field Name="TxtTotal2_Vendite">
+          <DataField>TxtTotal2_Vendite</DataField>
+        </Field>
+        <Field Name="TxtTotal2_Acquisti">
+          <DataField>TxtTotal2_Acquisti</DataField>
+        </Field>
+        <Field Name="TxtTotal2_Imp">
+          <DataField>TxtTotal2_Imp</DataField>
+        </Field>
+        <Field Name="TxtTotal2_Iva">
+          <DataField>TxtTotal2_Iva</DataField>
+        </Field>
+        <Field Name="blnPrintTotal2">
+          <DataField>blnPrintTotal2</DataField>
+        </Field>
+        <Field Name="TxtTotal2_Totali">
+          <DataField>TxtTotal2_Totali</DataField>
+        </Field>
+        <Field Name="TxtTotal2_TotIvaDebCre">
+          <DataField>TxtTotal2_TotIvaDebCre</DataField>
+        </Field>
+        <Field Name="TxtTotal2_DebCrePer">
+          <DataField>TxtTotal2_DebCrePer</DataField>
+        </Field>
+        <Field Name="TxtTotal2_Variazioni">
+          <DataField>TxtTotal2_Variazioni</DataField>
+        </Field>
+        <Field Name="TxtTotal2_IvaNonVersata">
+          <DataField>TxtTotal2_IvaNonVersata</DataField>
+        </Field>
+        <Field Name="TxtTotal2_DebCrePerPrec">
+          <DataField>TxtTotal2_DebCrePerPrec</DataField>
+        </Field>
+        <Field Name="TxtTotal2_CredIva">
+          <DataField>TxtTotal2_CredIva</DataField>
+        </Field>
+        <Field Name="TxtTotal2_DebCrePer2">
+          <DataField>TxtTotal2_DebCrePer2</DataField>
+        </Field>
+        <Field Name="TxtTotal2_CredSpecImposta">
+          <DataField>TxtTotal2_CredSpecImposta</DataField>
+        </Field>
+        <Field Name="TxtTotal2_InteressiLiquid">
+          <DataField>TxtTotal2_InteressiLiquid</DataField>
+        </Field>
+        <Field Name="TxtTotal2_AccontoVersato">
+          <DataField>TxtTotal2_AccontoVersato</DataField>
+        </Field>
+        <Field Name="TxtTotal2_DEBITOCREDITO">
+          <DataField>TxtTotal2_DEBITOCREDITO</DataField>
+        </Field>
+        <Field Name="TxtTotal2_DetProrRata">
+          <DataField>TxtTotal2_DetProrRata</DataField>
+        </Field>
+        <Field Name="AliquotaDes">
+          <DataField>AliquotaDes</DataField>
+        </Field>
+        <Field Name="ImponibileV">
+          <DataField>ImponibileV</DataField>
+        </Field>
+        <Field Name="ImponibileVFormat">
+          <DataField>ImponibileVFormat</DataField>
+        </Field>
+        <Field Name="ImportoV">
+          <DataField>ImportoV</DataField>
+        </Field>
+        <Field Name="ImportoVFormat">
+          <DataField>ImportoVFormat</DataField>
+        </Field>
+        <Field Name="TimpV">
+          <DataField>TimpV</DataField>
+        </Field>
+        <Field Name="TimpVFormat">
+          <DataField>TimpVFormat</DataField>
+        </Field>
+        <Field Name="TivaV">
+          <DataField>TivaV</DataField>
+        </Field>
+        <Field Name="TivaVFormat">
+          <DataField>TivaVFormat</DataField>
+        </Field>
+        <Field Name="ImponibileA">
+          <DataField>ImponibileA</DataField>
+        </Field>
+        <Field Name="ImponibileAFormat">
+          <DataField>ImponibileAFormat</DataField>
+        </Field>
+        <Field Name="ImportoA">
+          <DataField>ImportoA</DataField>
+        </Field>
+        <Field Name="ImportoAFormat">
+          <DataField>ImportoAFormat</DataField>
+        </Field>
+        <Field Name="DetraibileProV">
+          <DataField>DetraibileProV</DataField>
+        </Field>
+        <Field Name="DetraibileProVFormat">
+          <DataField>DetraibileProVFormat</DataField>
+        </Field>
+        <Field Name="IvaDeb">
+          <DataField>IvaDeb</DataField>
+        </Field>
+        <Field Name="IvaDebFormat">
+          <DataField>IvaDebFormat</DataField>
+        </Field>
+        <Field Name="DebitoP">
+          <DataField>DebitoP</DataField>
+        </Field>
+        <Field Name="DebitoPFormat">
+          <DataField>DebitoPFormat</DataField>
+        </Field>
+        <Field Name="PriorPeriodOutputVAT">
+          <DataField>PriorPeriodOutputVAT</DataField>
+        </Field>
+        <Field Name="PriorPeriodOutputVATFormat">
+          <DataField>PriorPeriodOutputVATFormat</DataField>
+        </Field>
+        <Field Name="DebitoP1">
+          <DataField>DebitoP1</DataField>
+        </Field>
+        <Field Name="DebitoP1Format">
+          <DataField>DebitoP1Format</DataField>
+        </Field>
+        <Field Name="TImpA">
+          <DataField>TImpA</DataField>
+        </Field>
+        <Field Name="TImpAFormat">
+          <DataField>TImpAFormat</DataField>
+        </Field>
+        <Field Name="TivaA">
+          <DataField>TivaA</DataField>
+        </Field>
+        <Field Name="TivaAFormat">
+          <DataField>TivaAFormat</DataField>
+        </Field>
+        <Field Name="DetraibileProA">
+          <DataField>DetraibileProA</DataField>
+        </Field>
+        <Field Name="DetraibileProAFormat">
+          <DataField>DetraibileProAFormat</DataField>
+        </Field>
+        <Field Name="IvaCre">
+          <DataField>IvaCre</DataField>
+        </Field>
+        <Field Name="IvaCreFormat">
+          <DataField>IvaCreFormat</DataField>
+        </Field>
+        <Field Name="CreditoP">
+          <DataField>CreditoP</DataField>
+        </Field>
+        <Field Name="CreditoPFormat">
+          <DataField>CreditoPFormat</DataField>
+        </Field>
+        <Field Name="PriorPeriodInputVAT">
+          <DataField>PriorPeriodInputVAT</DataField>
+        </Field>
+        <Field Name="PriorPeriodInputVATFormat">
+          <DataField>PriorPeriodInputVATFormat</DataField>
+        </Field>
+        <Field Name="CreditoP1">
+          <DataField>CreditoP1</DataField>
+        </Field>
+        <Field Name="CreditoP1Format">
+          <DataField>CreditoP1Format</DataField>
+        </Field>
+        <Field Name="DebitoF">
+          <DataField>DebitoF</DataField>
+        </Field>
+        <Field Name="DebitoFFormat">
+          <DataField>DebitoFFormat</DataField>
+        </Field>
+        <Field Name="CreditoF">
+          <DataField>CreditoF</DataField>
+        </Field>
+        <Field Name="CreditoFFormat">
+          <DataField>CreditoFFormat</DataField>
         </Field>
       </Fields>
       <Query>
