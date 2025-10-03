@@ -1244,11 +1244,13 @@ report 78001 "PRV Calc. and Post VAT Settl."
         trigger OnOpenPage()
         begin
             GetGLSetup();
-            GLSetup.TestField("Last Settlement Date");
+            // GLSetup.TestField("Last Settlement Date");  //PRV - old line
             if GLSetup."Last Settlement Date" <> 0D then begin
                 EntrdStartDate := GLSetup."Last Settlement Date" + 1;
                 CalculateEndDate();
-            end;
+                // end;  //PRV - old line
+            end else  //PRV - new line
+                Clear(EntrdStartDate);  //PRV - new line
         end;
     }
 
